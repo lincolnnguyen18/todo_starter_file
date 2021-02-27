@@ -20,8 +20,3 @@
     /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */
     --font-primary: 'Consolas', 'Lexend Exa', sans-serif;
 }
-
-body {
-    background-color: var(--swatch-foundation);
-    font-family: var(--font-primary);
-}
