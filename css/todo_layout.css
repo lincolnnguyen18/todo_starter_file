@@ -1,0 +1,13 @@
+#navbar {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    background-color: var(--swatch-primary);
+    color: #ffc800;
+    font-size: 16px;
+    padding: 6px;
+    box-shadow: 2px 2px 2px var(--swatch-primary);
+}
+
+#navbar h2 {
+    margin: 0;
+}
