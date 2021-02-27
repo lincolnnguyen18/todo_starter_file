@@ -10,7 +10,7 @@ body {
     grid-row: 1 / span 1;
     background-color: var(--swatch-primary);
     color: #ffc800;
-    font-size: 16px;
+    font-size: 14px;
     padding: 6px;
     padding-left: 10px;
     box-shadow: 2px 2px 2px var(--swatch-primary);
