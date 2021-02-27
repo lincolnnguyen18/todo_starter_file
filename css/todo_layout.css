@@ -5,6 +5,30 @@
     font-family: 'Consolas';
 }
 
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #2b2e36;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 body {
     background: #d9d6cc;
     color: #e9edf0;
@@ -92,7 +116,6 @@ body {
     background: #f0e9e958;
 }
 
-
 .left-sidebar-controls #add-list-button {
     margin-right: 3px;
 }
@@ -107,6 +130,8 @@ body {
 #todo-lists-list {
     grid-template-columns: 1/2;
     grid-template-rows: 2/3;
+    height: 800px;
+    overflow: auto;
 }
 
 #workspace {
@@ -144,6 +169,7 @@ body {
     grid-template-columns: 1fr 6.7fr;
     grid-template-rows: 1fr 16fr;
     padding: 10px;
+    overflow: hidden;
 }
 
 #navbar {
@@ -176,7 +202,10 @@ body {
 #todo-list-items-div {
     padding: 25px;
     padding-top: 0;
-    /* display: grid; */
+    padding-bottom: 0;
+    margin: 0;
+    height: 783px;
+    overflow: auto;
 }
 
 #todo-list-items-div .list-item-card {
@@ -192,7 +221,6 @@ body {
     background: #e9edf020;
     transition: background 0.07s ease-in-out;
 }
-
 
 #todo-list-items-div .list-controls-col .list-item-control {
     height: 65px;
