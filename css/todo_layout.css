@@ -20,7 +20,7 @@
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #7e8084;
 }
 
 /* Handle on hover */
@@ -158,11 +158,6 @@ body {
     padding-top: 27px;
 }
 
-#todo-list-header-card .todo_button:hover {
-    /* background: none;
-    cursor: pointer; */
-}
-
 #grid-container {
     height: 100vh;
     display: grid;
@@ -180,10 +175,6 @@ body {
 #add-list-button {
     color: #ffc800;
 }
-
-/* #todo-list-header-card .list-controls-col {
-    color: #322d2d;
-} */
 
 .list-controls-col {
     grid-column: 6/7;
