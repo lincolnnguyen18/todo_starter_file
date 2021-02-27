@@ -91,6 +91,30 @@ body {
 #workspace {
     background: #40454e;
     box-shadow: 3px 3px 3px #636363;
+    display: grid;
+    grid-template-rows: 56px 1fr;
+}
+
+#todo-list-header-card {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr 1fr 1fr 2fr;
+    font-weight: bold;
+    font-size: 19px;
+    border-bottom: 2px dotted;
+    color: var(--light-gray);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#todo-list-header-card .todo_button {
+    height: 100%;
+    padding-top: 23px;
+}
+
+#todo-list-header-card .todo_button:hover {
+    /* background: none;
+    cursor: pointer; */
 }
 
 #grid-container {
@@ -112,4 +136,18 @@ body {
 
 .list-controls-col {
     color: #322d2d;
+    grid-column: 6/7;
+    display: flex;
 }
+
+.list-controls-col .list-item-control {
+    width: 80px;
+    padding-left: 28px;
+}
+
+#todo-list-items-div {
+    padding: 0;
+    display: grid;
+}
+
+#todo-list-items-div
