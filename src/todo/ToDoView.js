@@ -23,9 +23,14 @@ export default class ToDoView {
 
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
         let thisController = this.controller;
-        listElement.onmousedown = function() {
+        listElement.onclick = function() {
             thisController.handleLoadList(newList.id);
             // console.log(newList);
+        }
+        listElement.ondblclick = function() {
+            console.log('DOUBE DOUBLE TROUBLE!');
+            thisController.model.renameListTransaction('Old', 'New');
+            // console.log(thisController.model);
         }
     }
 

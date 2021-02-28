@@ -6,6 +6,7 @@ import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import DeleteList_Transaction from './transactions/DeleteList_Transaction.js'
 import RenameItem_Transaction from './transactions/RenameItem_Transaction.js'
+import RenameList_Transaction from './transactions/RenameList_Transaction.js'
 
 function array_move(arr, old_index, new_index) {
     if (new_index >= arr.length) {
@@ -68,6 +69,10 @@ export default class ToDoModel {
                 itemIndex = i;
         }
         return itemIndex;
+    }
+
+    renameList(newName) {
+        console.log('renameList called!');
     }
 
     renameItem(itemId, newName) {
@@ -150,6 +155,11 @@ export default class ToDoModel {
     
     renameItemTransaction(oldName, newName, itemId) {
         let transaction = new RenameItem_Transaction(this, oldName, newName, itemId);
+        this.tps.addTransaction(transaction);
+    }
+
+    renameListTransaction(oldName, newName) {
+        let transaction = new RenameList_Transaction(this, oldName, newName);
         this.tps.addTransaction(transaction);
     }
 

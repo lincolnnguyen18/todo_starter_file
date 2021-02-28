@@ -7,8 +7,7 @@
  * event handling responses.
  */
 
-export default class ToDoController {    
-
+export default class ToDoController {
     toggleTextField(item, list, itemId) {
 
         // console.log(item);
@@ -21,7 +20,7 @@ export default class ToDoController {
         let inputTextField = document.createElement("div");
         inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
         inputTextField.classList.add('task-col');
-        inputTextField.addEventListener('keyup', ({key}) => {
+        inputTextField.addEventListener('keyup', ({ key }) => {
             if (key === 'Enter') {
                 let textField = inputTextField.querySelector('input');
                 // // console.log(textField.value);
@@ -30,91 +29,91 @@ export default class ToDoController {
                 textField.blur();
             }
         })
-        inputTextField.addEventListener('focusout', ({key}) => {
+        inputTextField.addEventListener('focusout', ({ key }) => {
             // console.log(inputTextField.value);
 
             let textField = inputTextField.querySelector('input');
             let newName = textField.value;
             inputTextField.innerHTML = `${newName}`;
 
-                    // let listId = textField.parentNode.id;
+            // let listId = textField.parentNode.id;
 
-                    // this.model.renameItemTransaction(oldName, newName, listId, itemId);
-                    // console.log('item id clicked on is: ', itemId);
-                    if (oldName != newName) {
-                        this.model.renameItemTransaction(oldName, newName, itemId);
-                    }
-                })
-
-                item.replaceWith(inputTextField);
-
-                // console.log(item);
-
-                // item.setSelectionRange(0, newName.length);
+            // this.model.renameItemTransaction(oldName, newName, listId, itemId);
+            // console.log('item id clicked on is: ', itemId);
+            if (oldName != newName) {
+                this.model.renameItemTransaction(oldName, newName, itemId);
             }
+        })
 
-            // untoggleTextField    (list, oldName) {
-            //     // console.log('untoggleTextField!');
-            //     // console.log(list);
-            //     let names = list.querySelectorAll('.task-col');
-            //     // console.log(names);
+        item.replaceWith(inputTextField);
 
-            //     for (let i = 0; i < names.length; i++) {
-            //         let currentItem = names[i];
+        // console.log(item);
 
-            //         // console.log(currentItem.innerHTML);
+        // item.setSelectionRange(0, newName.length);
+    }
 
-            //         let textFields = currentItem.getElementsByTagName("input");
-            //         if (textFields.length > 0) {
-            //             // console.log(textFields[0].value);
+    // untoggleTextField    (list, oldName) {
+    //     // console.log('untoggleTextField!');
+    //     // console.log(list);
+    //     let names = list.querySelectorAll('.task-col');
+    //     // console.log(names);
 
-            //             // let listItem = document.createElement("div");
-            //             // listItem.innerHTML = textFields[0].value;
-            //             // listItem.classList.add('task-col');
-            //             // listItem.onclick = function() {
-            //             //     toggleTextField(listItem, list);
-            //             // }
-            //             // textFields[0].replaceWith(listItem);
+    //     for (let i = 0; i < names.length; i++) {
+    //         let currentItem = names[i];
 
-            //             // console.log(oldName);
-            //             let newName = textFields[0].value;
-            //             this.model.renameItemTransaction(oldName, newName);
+    //         // console.log(currentItem.innerHTML);
 
-            //             textFields[0].replaceWith(textFields[0].value);
-            //         }
-            //     }
-            // }
+    //         let textFields = currentItem.getElementsByTagName("input");
+    //         if (textFields.length > 0) {
+    //             // console.log(textFields[0].value);
 
-            constructor() {}
+    //             // let listItem = document.createElement("div");
+    //             // listItem.innerHTML = textFields[0].value;
+    //             // listItem.classList.add('task-col');
+    //             // listItem.onclick = function() {
+    //             //     toggleTextField(listItem, list);
+    //             // }
+    //             // textFields[0].replaceWith(listItem);
 
-            setModel(initModel) {
-                this.model = initModel;
-                let appModel = this.model;
+    //             // console.log(oldName);
+    //             let newName = textFields[0].value;
+    //             this.model.renameItemTransaction(oldName, newName);
 
-                function deleteShortcut(e) {
-                    if (e.key === 'Delete') {
-                        document.getElementById("modal_container").classList.add('show');
-                    }
-                }
-                document.addEventListener('keydown', deleteShortcut, false);
+    //             textFields[0].replaceWith(textFields[0].value);
+    //         }
+    //     }
+    // }
 
-                function undoShortcut(e) {
-                    if (e.ctrlKey && e.key === 'z') {
-                        appModel.undo();
-                    }
-                }
-                document.addEventListener('keydown', undoShortcut, false);
+    constructor() { }
 
-                function redoShortcut(e) {
-                    if (e.ctrlKey && e.key === 'y') {
-                        appModel.redo();
-                    }
-                }
-                document.addEventListener('keydown', redoShortcut, false);
+    setModel(initModel) {
+        this.model = initModel;
+        let appModel = this.model;
 
-                function confirmShortcut(e) {
-                    if (modal_container.classList.contains('show') && e.key === 'Enter') {
-                        appModel.deleteListTransaction();
+        function deleteShortcut(e) {
+            if (e.key === 'Delete') {
+                document.getElementById("modal_container").classList.add('show');
+            }
+        }
+        document.addEventListener('keydown', deleteShortcut, false);
+
+        function undoShortcut(e) {
+            if (e.ctrlKey && e.key === 'z') {
+                appModel.undo();
+            }
+        }
+        document.addEventListener('keydown', undoShortcut, false);
+
+        function redoShortcut(e) {
+            if (e.ctrlKey && e.key === 'y') {
+                appModel.redo();
+            }
+        }
+        document.addEventListener('keydown', redoShortcut, false);
+
+        function confirmShortcut(e) {
+            if (modal_container.classList.contains('show') && e.key === 'Enter') {
+                appModel.deleteListTransaction();
                 modal_container.classList.remove('show');
             }
         }
@@ -174,32 +173,32 @@ export default class ToDoController {
 
 
         // SETUP ALL THE EVENT HANDLERS SINCE THEY USE THE MODEL
-        document.getElementById("add-list-button").onmouseup = function() {
+        document.getElementById("add-list-button").onmouseup = function () {
             appModel.addNewList();
         }
-        document.getElementById("undo-button").onmouseup = function() {
+        document.getElementById("undo-button").onmouseup = function () {
             appModel.undo();
         }
-        document.getElementById("redo-button").onmouseup = function() {
+        document.getElementById("redo-button").onmouseup = function () {
             appModel.redo();
         }
-        document.getElementById("delete-list-button").onmouseup = function() {
+        document.getElementById("delete-list-button").onmouseup = function () {
             // appModel.removeCurrentList();
             document.getElementById("modal_container").classList.add('show');
             console.log("open clicked!");
         }
-        document.getElementById("add-item-button").onmouseup = function() {
+        document.getElementById("add-item-button").onmouseup = function () {
             appModel.addNewItemTransaction();
         }
-        document.getElementById("modal-cancel1").onmouseup = function() {
+        document.getElementById("modal-cancel1").onmouseup = function () {
             modal_container.classList.remove('show');
             console.log("close clicked!");
         }
-        document.getElementById("modal-cancel2").onmouseup = function() {
+        document.getElementById("modal-cancel2").onmouseup = function () {
             modal_container.classList.remove('show');
             console.log("close clicked!");
         }
-        document.getElementById("modal-confirm").onmouseup = function() {
+        document.getElementById("modal-confirm").onmouseup = function () {
             // appModel.removeCurrentList();
             appModel.deleteListTransaction();
             modal_container.classList.remove('show');
@@ -214,7 +213,7 @@ export default class ToDoController {
 
             let lists = document.getElementById("todo-lists-list").querySelectorAll('div');
             // console.log(lists);
-            lists.forEach(function(list) {
+            lists.forEach(function (list) {
                 list.style.backgroundColor = '#353a44';
                 list.style.color = '#e9edf0';
             });
@@ -226,7 +225,7 @@ export default class ToDoController {
             this.model.moveListToIndex0(newCurrentListId);
         }
     }
-    
+
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
