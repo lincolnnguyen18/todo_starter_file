@@ -39,10 +39,21 @@ export default class ToDoController {
             modal_container.classList.remove('show');
             console.log("close clicked!");
         }
-        document.getElementById("modal-confirm").onmouseup  = function() {
+        document.getElementById("modal-confirm").onmouseup = function() {
             appModel.removeCurrentList();
             modal_container.classList.remove('show');
             console.log("list deleted!");
+        }
+        document.getElementById("todo-lists-list").onclick = e => {
+            let lists = document.getElementById("todo-lists-list").querySelectorAll('div');
+            console.log(lists);
+            lists.forEach(function(list) {
+                list.style.backgroundColor = '#353a44';
+            });
+            console.log(e.target);
+            let newCurrentList = e.target;
+            newCurrentList.style.backgroundColor = '#40454e';
+            // newCurrentList.classList.add('currentList');
         }
     }
     
