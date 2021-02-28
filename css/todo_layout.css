@@ -1,3 +1,34 @@
+#todo-list-items-div input {
+    background: transparent;
+    border: 0;
+    /* border-bottom: 1px solid black; */
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.1em;
+    color: #fff;
+    width: 97%;
+}
+
+#todo-list-items-div .task-col {
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .modal-container.show {
     pointer-events: auto;
     opacity: 1;

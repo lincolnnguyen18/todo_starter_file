@@ -9,10 +9,13 @@
 
 function toggleTextField(item, list) {
 
-    console.log(item);
+    // console.log(item);
 
     untoggleTextField(list);
-    console.log(item.innerHTML);
+    // console.log(item.innerHTML);
+
+    let newName = item.innerHTML;
+
     let inputTextField = document.createElement("div");
     inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
     inputTextField.classList.add('task-col');
@@ -24,6 +27,10 @@ function toggleTextField(item, list) {
     })
 
     item.replaceWith(inputTextField);
+
+    // console.log(item);
+
+    // item.setSelectionRange(0, newName.length);
 }
 
 function untoggleTextField(list) {
@@ -114,8 +121,12 @@ export default class ToDoController {
             // console.log(clickedItemComponentInList);
             if (clickedItemComponentInList.classList.contains('task-col')) {
                 let name = clickedItemComponentInList;
-                console.log(name);
+                // console.log(name);
                 toggleTextField(name, listOfNames);
+                // let textField = clickedItemComponentInList;
+                let textFields = document.getElementsByTagName('input');
+                console.log(textFields[0]);
+                textFields[0].select();
             }
         }
 
