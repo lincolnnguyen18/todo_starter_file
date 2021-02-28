@@ -163,9 +163,26 @@ export default class ToDoController {
             }
         }
 
-
-
-
+        let undoEnabled = this.model.tps.hasTransactionToRedo();
+        let redoEnabled = this.model.tps.hasTransactionToUndo();
+        console.log('undoEnabled:', redoEnabled);
+        console.log('redoEnabled:', undoEnabled);
+        let undoButton = document.getElementById('undo-button');
+        let redoButton = document.getElementById('redo-button');
+        if (undoEnabled) {
+            // undoButton.disabled = false;
+            undoButton.classList.remove('disabled');
+        } else {
+            // undoButton.disabled = true;
+            undoButton.classList.add('disabled');
+        }
+        if (redoEnabled) {
+            // undoButton.disabled = false;
+            redoButton.classList.remove('disabled');
+        } else {
+            // undoButton.disabled = true;
+            redoButton.classList.add('disabled');
+        }
 
 
 
@@ -185,24 +202,24 @@ export default class ToDoController {
         document.getElementById("delete-list-button").onmouseup = function () {
             // appModel.removeCurrentList();
             document.getElementById("modal_container").classList.add('show');
-            console.log("open clicked!");
+            // console.log("open clicked!");
         }
         document.getElementById("add-item-button").onmouseup = function () {
             appModel.addNewItemTransaction();
         }
         document.getElementById("modal-cancel1").onmouseup = function () {
             modal_container.classList.remove('show');
-            console.log("close clicked!");
+            // console.log("close clicked!");
         }
         document.getElementById("modal-cancel2").onmouseup = function () {
             modal_container.classList.remove('show');
-            console.log("close clicked!");
+            // console.log("close clicked!");
         }
         document.getElementById("modal-confirm").onmouseup = function () {
             // appModel.removeCurrentList();
             appModel.deleteListTransaction();
             modal_container.classList.remove('show');
-            console.log("list deleted!");
+            // console.log("list deleted!");
         }
         document.getElementById("todo-lists-list").onclick = e => {
 

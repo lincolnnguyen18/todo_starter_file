@@ -1,3 +1,9 @@
+.disabled {
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+
 #todo-list-items-div input {
     background: transparent;
     border: 0;

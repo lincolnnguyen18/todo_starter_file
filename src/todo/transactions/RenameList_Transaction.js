@@ -14,14 +14,14 @@ export default class RenameItem_Transaction extends jsTPS_Transaction {
     }
 
     doTransaction() {
-        console.log(`change list name '${this.oldName}' to new name '${this.newName}'`);
-        console.log(`list id is ${this.listId}`);
+        // console.log(`change list name '${this.oldName}' to new name '${this.newName}'`);
+        // console.log(`list id is ${this.listId}`);
         this.model.renameList(this.newName, this.listId);
     }
 
     undoTransaction() {
-        console.log(`change list name '${this.newName}' to old name '${this.oldName}'`);
-        console.log(`list id is ${this.listId}`);
+        // console.log(`change list name '${this.newName}' to old name '${this.oldName}'`);
+        // console.log(`list id is ${this.listId}`);
         this.model.renameList(this.oldName, this.listId);
         // this.model.renameItem(this.itemId, this.oldName);
     }

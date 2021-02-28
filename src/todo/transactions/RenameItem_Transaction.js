@@ -16,13 +16,13 @@ export default class RenameItem_Transaction extends jsTPS_Transaction {
     doTransaction() {
         // MAKE A NEW ITEM
         // this.itemAdded = this.model.addNewItem();
-        console.log(`change item name '${this.oldName}' to new name '${this.newName}'`);
+        // console.log(`change item name '${this.oldName}' to new name '${this.newName}'`);
         this.model.renameItem(this.itemId, this.newName);
     }
 
     undoTransaction() {
         // this.model.removeItem(this.itemAdded.id);
-        console.log(`change item name '${this.newName}' to old name '${this.oldName}'`);
+        // console.log(`change item name '${this.newName}' to old name '${this.oldName}'`);
         this.model.renameItem(this.itemId, this.oldName);
     }
 }

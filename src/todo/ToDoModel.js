@@ -74,7 +74,7 @@ export default class ToDoModel {
     }
 
     renameList(newName, listId) {
-        console.log('renameList called!');
+        // console.log('renameList called!');
         // console.log(this.toDoLists);
         let listIndex = findListIndex(this.toDoLists, listId);
         // console.log(listIndex);
@@ -94,8 +94,8 @@ export default class ToDoModel {
         // console.log('id of ixtem to rename is: ', itemId);
         // console.log(this.toDoLists);
         let itemIndex = this.findItemIndex(this.currentList.items, itemId);
-        console.log(this.currentList.items);
-        console.log(itemIndex);
+        // console.log(this.currentList.items);
+        // console.log(itemIndex);
         this.currentList.items[itemIndex].description = newName;
         this.loadList(this.currentList.id);
     }
