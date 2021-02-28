@@ -23,17 +23,12 @@ export default class ToDoController {
         inputTextField.classList.add('task-col');
         inputTextField.addEventListener('keyup', ({key}) => {
             if (key === 'Enter') {
-                // console.log(inputTextField.value);
-                // try {
-                //     this.untoggleTextField(list, oldName);
-                // } catch (error) {
-                //     // it's fine.
-                // }
-                // inputTextField.blur();
                 let textField = inputTextField.querySelector('input');
-                // console.log(textField.value);
-                let newName = textField.value;
-                inputTextField.innerHTML = `${newName}`;
+                // // console.log(textField.value);
+                // let newName = textField.value;
+                // inputTextField.innerHTML = `${newName}`;
+                textField.blur();
+                
             }
         })
         inputTextField.addEventListener('focusout', ({key}) => {
