@@ -22,6 +22,8 @@ function array_move(arr, old_index, new_index) {
 function findListIndex(toDoLists, listId) {
     let listIndex = -1;
     for (let i = 0; (i < toDoLists.length) && (listIndex < 0); i++) {
+        // console.log(listId);
+        // console.log(toDoLists[i].id);
         if (toDoLists[i].id == listId)
             listIndex = i;
     }
@@ -71,8 +73,21 @@ export default class ToDoModel {
         return itemIndex;
     }
 
-    renameList(newName) {
+    renameList(newName, listId) {
         console.log('renameList called!');
+        // console.log(this.toDoLists);
+        let listIndex = findListIndex(this.toDoLists, listId);
+        // console.log(listIndex);
+        this.toDoLists[listIndex].name = newName;
+        // this.moveListToIndex0(listId);
+
+
+        let currentListId = this.currentList.id;
+        this.view.refreshLists(this.toDoLists);
+        document.getElementById(`todo-list-${currentListId}`).click();
+
+
+        // this.view.refreshLists(this.toDoLists);
     }
 
     renameItem(itemId, newName) {
@@ -158,8 +173,8 @@ export default class ToDoModel {
         this.tps.addTransaction(transaction);
     }
 
-    renameListTransaction(oldName, newName) {
-        let transaction = new RenameList_Transaction(this, oldName, newName);
+    renameListTransaction(oldName, newName, listId) {
+        let transaction = new RenameList_Transaction(this, oldName, newName, listId);
         this.tps.addTransaction(transaction);
     }
 

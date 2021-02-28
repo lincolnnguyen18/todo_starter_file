@@ -8,6 +8,45 @@
 export default class ToDoView {
     constructor() {}
 
+    toggleTextField(item) {
+        let oldName = item.innerHTML;
+
+        if (item.querySelector('input')) {
+            return;
+        }
+
+        // console.log(item);
+
+        let inputTextField = document.createElement("input");
+        // inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
+        inputTextField.value = oldName;
+        inputTextField.addEventListener('keyup', ({ key }) => {
+            if (key === 'Enter') {
+                let textField = document.querySelector('input');
+                textField.blur();
+            }
+        })
+        inputTextField.addEventListener('focusout', ({ key }) => {
+            let textField = document.querySelector('#todo-lists-list input');
+            let newName = textField.value;
+            inputTextField.innerHTML = `${newName}`;
+            if (oldName != newName) {
+                // console.log('oldname newname');
+                let listId = item.getAttribute("id").split('-')[2];
+                // console.log();
+                this.controller.model.renameListTransaction(oldName, newName, listId);
+            }
+        })
+        item.innerHTML = '';
+        // console.log(item);
+        item.appendChild(inputTextField);
+        // console.log(item);
+    }
+
+    test() {
+        console.log('test called');
+    }
+
     // ADDS A LIST TO SELECT FROM IN THE LEFT SIDEBAR
     appendNewListToView(newList) {
         // GET THE UI CONTROL WE WILL APPEND IT TO
@@ -27,10 +66,14 @@ export default class ToDoView {
             thisController.handleLoadList(newList.id);
             // console.log(newList);
         }
+        let thisView = this;
         listElement.ondblclick = function() {
-            console.log('DOUBE DOUBLE TROUBLE!');
-            thisController.model.renameListTransaction('Old', 'New');
+            // console.log('DOUBE DOUBLE TROUBLE!');
+            thisView.toggleTextField(document.getElementById(`todo-list-${newList.id}`));
+            // thisController.model.renameListTransaction('Old', 'New');
             // console.log(thisController.model);
+            let textField = document.querySelector('#todo-lists-list input');
+            textField.select();
         }
     }
 
