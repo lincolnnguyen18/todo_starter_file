@@ -16,6 +16,15 @@ function array_move(arr, old_index, new_index) {
     return arr; // for testing
 };
 
+function findListIndex(toDoLists, listId) {
+    let listIndex = -1;
+    for (let i = 0; (i < toDoLists.length) && (listIndex < 0); i++) {
+        if (toDoLists[i].id == listId)
+            listIndex = i;
+    }
+    return listIndex;
+}
+
 /**
  * ToDoModel
  * 
@@ -37,6 +46,13 @@ export default class ToDoModel {
 
         // WE'LL USE THIS TO ASSIGN ID NUMBERS TO EVERY LIST ITEM
         this.nextListItemId = 0;
+    }
+
+    moveListToIndex0(listId) {
+        let oldIndex = findListIndex(this.toDoLists, listId);
+        let newIndex = 0;
+        array_move(this.toDoLists, oldIndex, newIndex);
+        this.view.refreshLists(this.toDoLists);
     }
 
     /**

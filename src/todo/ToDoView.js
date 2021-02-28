@@ -25,7 +25,7 @@ export default class ToDoView {
         let thisController = this.controller;
         listElement.onmousedown = function() {
             thisController.handleLoadList(newList.id);
-            console.log(newList);
+            // console.log(newList);
         }
     }
 

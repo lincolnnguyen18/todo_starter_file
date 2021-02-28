@@ -46,13 +46,27 @@ export default class ToDoController {
         }
         document.getElementById("todo-lists-list").onclick = e => {
             let lists = document.getElementById("todo-lists-list").querySelectorAll('div');
-            console.log(lists);
+            // console.log(lists);
             lists.forEach(function(list) {
                 list.style.backgroundColor = '#353a44';
+                list.style.color = '#e9edf0';
             });
-            console.log(e.target);
+            // console.log(e.target);
             let newCurrentList = e.target;
-            newCurrentList.style.backgroundColor = '#40454e';
+            let newCurrentListId = e.target.getAttribute("id").split('-')[2];
+            console.log(newCurrentListId);
+
+
+            // JUST UNCOMMENT THIS IF YOU DON'T WANT MOST RECENTLY CLICKED TO MOVE TO TOP!
+                this.model.moveListToIndex0(newCurrentListId);
+            // JUST UNCOMMENT THIS IF YOU DON'T WANT MOST RECENTLY CLICKED TO MOVE TO TOP!
+
+
+            newCurrentList = document.getElementById(`todo-list-${newCurrentListId}`);
+
+            // console.log(findListIndex(newCurrentListId));
+            newCurrentList.style.backgroundColor = '#ffc800';
+            newCurrentList.style.color = '#202329';
             // newCurrentList.classList.add('currentList');
         }
     }
