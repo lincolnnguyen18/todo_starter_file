@@ -70,12 +70,14 @@ export default class ToDoModel {
         return itemIndex;
     }
 
-    renameItem(itemId) {
+    renameItem(itemId, newName) {
         // console.log('id of ixtem to rename is: ', itemId);
         // console.log(this.toDoLists);
-        // console.log(this.currentList);
         let itemIndex = this.findItemIndex(this.currentList.items, itemId);
+        console.log(this.currentList.items);
         console.log(itemIndex);
+        this.currentList.items[itemIndex].description = newName;
+        this.loadList(this.currentList.id);
     }
 
     moveListToIndex0(listId) {
@@ -146,8 +148,8 @@ export default class ToDoModel {
         this.tps.addTransaction(transaction);
     }
     
-    renameItemTransaction(oldName, newName) {
-        let transaction = new RenameItem_Transaction(this, oldName, newName);
+    renameItemTransaction(oldName, newName, itemId) {
+        let transaction = new RenameItem_Transaction(this, oldName, newName, itemId);
         this.tps.addTransaction(transaction);
     }
 

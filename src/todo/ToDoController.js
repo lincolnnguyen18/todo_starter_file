@@ -37,83 +37,84 @@ export default class ToDoController {
             let newName = textField.value;
             inputTextField.innerHTML = `${newName}`;
 
-            // let listId = textField.parentNode.id;
+                    // let listId = textField.parentNode.id;
 
-            // this.model.renameItemTransaction(oldName, newName, listId, itemId);
-            this.model.renameItemTransaction(oldName, newName);
-            // console.log('item id clicked on is: ', itemId);
-            this.model.renameItem(itemId, newName);
-        })
+                    // this.model.renameItemTransaction(oldName, newName, listId, itemId);
+                    // console.log('item id clicked on is: ', itemId);
+                    if (oldName != newName) {
+                        this.model.renameItemTransaction(oldName, newName, itemId);
+                    }
+                })
 
-        item.replaceWith(inputTextField);
+                item.replaceWith(inputTextField);
 
-        // console.log(item);
+                // console.log(item);
 
-        // item.setSelectionRange(0, newName.length);
-    }
-
-    // untoggleTextField    (list, oldName) {
-    //     // console.log('untoggleTextField!');
-    //     // console.log(list);
-    //     let names = list.querySelectorAll('.task-col');
-    //     // console.log(names);
-
-    //     for (let i = 0; i < names.length; i++) {
-    //         let currentItem = names[i];
-
-    //         // console.log(currentItem.innerHTML);
-
-    //         let textFields = currentItem.getElementsByTagName("input");
-    //         if (textFields.length > 0) {
-    //             // console.log(textFields[0].value);
-
-    //             // let listItem = document.createElement("div");
-    //             // listItem.innerHTML = textFields[0].value;
-    //             // listItem.classList.add('task-col');
-    //             // listItem.onclick = function() {
-    //             //     toggleTextField(listItem, list);
-    //             // }
-    //             // textFields[0].replaceWith(listItem);
-
-    //             // console.log(oldName);
-    //             let newName = textFields[0].value;
-    //             this.model.renameItemTransaction(oldName, newName);
-
-    //             textFields[0].replaceWith(textFields[0].value);
-    //         }
-    //     }
-    // }
-
-    constructor() {}
-
-    setModel(initModel) {
-        this.model = initModel;
-        let appModel = this.model;
-
-        function deleteShortcut(e) {
-            if (e.key === 'Delete') {
-                document.getElementById("modal_container").classList.add('show');
+                // item.setSelectionRange(0, newName.length);
             }
-        }
-        document.addEventListener('keydown', deleteShortcut, false);
 
-        function undoShortcut(e) {
-            if (e.ctrlKey && e.key === 'z') {
-                appModel.undo();
-            }
-        }
-        document.addEventListener('keydown', undoShortcut, false);
+            // untoggleTextField    (list, oldName) {
+            //     // console.log('untoggleTextField!');
+            //     // console.log(list);
+            //     let names = list.querySelectorAll('.task-col');
+            //     // console.log(names);
 
-        function redoShortcut(e) {
-            if (e.ctrlKey && e.key === 'y') {
-                appModel.redo();
-            }
-        }
-        document.addEventListener('keydown', redoShortcut, false);
+            //     for (let i = 0; i < names.length; i++) {
+            //         let currentItem = names[i];
 
-        function confirmShortcut(e) {
-            if (modal_container.classList.contains('show') && e.key === 'Enter') {
-                appModel.deleteListTransaction();
+            //         // console.log(currentItem.innerHTML);
+
+            //         let textFields = currentItem.getElementsByTagName("input");
+            //         if (textFields.length > 0) {
+            //             // console.log(textFields[0].value);
+
+            //             // let listItem = document.createElement("div");
+            //             // listItem.innerHTML = textFields[0].value;
+            //             // listItem.classList.add('task-col');
+            //             // listItem.onclick = function() {
+            //             //     toggleTextField(listItem, list);
+            //             // }
+            //             // textFields[0].replaceWith(listItem);
+
+            //             // console.log(oldName);
+            //             let newName = textFields[0].value;
+            //             this.model.renameItemTransaction(oldName, newName);
+
+            //             textFields[0].replaceWith(textFields[0].value);
+            //         }
+            //     }
+            // }
+
+            constructor() {}
+
+            setModel(initModel) {
+                this.model = initModel;
+                let appModel = this.model;
+
+                function deleteShortcut(e) {
+                    if (e.key === 'Delete') {
+                        document.getElementById("modal_container").classList.add('show');
+                    }
+                }
+                document.addEventListener('keydown', deleteShortcut, false);
+
+                function undoShortcut(e) {
+                    if (e.ctrlKey && e.key === 'z') {
+                        appModel.undo();
+                    }
+                }
+                document.addEventListener('keydown', undoShortcut, false);
+
+                function redoShortcut(e) {
+                    if (e.ctrlKey && e.key === 'y') {
+                        appModel.redo();
+                    }
+                }
+                document.addEventListener('keydown', redoShortcut, false);
+
+                function confirmShortcut(e) {
+                    if (modal_container.classList.contains('show') && e.key === 'Enter') {
+                        appModel.deleteListTransaction();
                 modal_container.classList.remove('show');
             }
         }
