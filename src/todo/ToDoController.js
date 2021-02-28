@@ -208,7 +208,7 @@ export default class ToDoController {
 
             // console.log('fix weird sidebar!');
             // console.log(e.target);
-            if (!e.target.classList.contains('todo_butotn'))
+            if (!e.target.classList.contains('todo_button'))
                 return
 
             let lists = document.getElementById("todo-lists-list").querySelectorAll('div');
