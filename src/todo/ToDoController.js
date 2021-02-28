@@ -7,61 +7,88 @@
  * event handling responses.
  */
 
-function toggleTextField(item, list) {
-
-    // console.log(item);
-
-    untoggleTextField(list);
-    // console.log(item.innerHTML);
-
-    let newName = item.innerHTML;
-
-    let inputTextField = document.createElement("div");
-    inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
-    inputTextField.classList.add('task-col');
-    inputTextField.addEventListener('keyup', ({key}) => {
-        if (key === 'Enter') {
-            // console.log(inputTextField.value);
-            untoggleTextField(list);
-        }
-    })
-
-    item.replaceWith(inputTextField);
-
-    // console.log(item);
-
-    // item.setSelectionRange(0, newName.length);
-}
-
-function untoggleTextField(list) {
-    // console.log('untoggleTextField!');
-    // console.log(list);
-    let names = list.querySelectorAll('.task-col');
-    // console.log(names);
-
-    for (let i = 0; i < names.length; i++) {
-        let currentItem = names[i];
-
-        // console.log(currentItem.innerHTML);
-
-        let textFields = currentItem.getElementsByTagName("input");
-        if (textFields.length > 0) {
-            // console.log(textFields[0].value);
-
-            // let listItem = document.createElement("div");
-            // listItem.innerHTML = textFields[0].value;
-            // listItem.classList.add('task-col');
-            // listItem.onclick = function() {
-            //     toggleTextField(listItem, list);
-            // }
-            // textFields[0].replaceWith(listItem);
-
-            textFields[0].replaceWith(textFields[0].value);;
-        }
-    }
-}
-
 export default class ToDoController {    
+
+    toggleTextField(item, list) {
+
+        // console.log(item);
+
+        // this.untoggleTextField(list);
+        // console.log(item.innerHTML);
+
+        let oldName = item.innerHTML;
+
+        let inputTextField = document.createElement("div");
+        inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
+        inputTextField.classList.add('task-col');
+        inputTextField.addEventListener('keyup', ({key}) => {
+            if (key === 'Enter') {
+                // console.log(inputTextField.value);
+                // try {
+                //     this.untoggleTextField(list, oldName);
+                // } catch (error) {
+                //     // it's fine.
+                // }
+                // inputTextField.blur();
+                let textField = inputTextField.querySelector('input');
+                // console.log(textField.value);
+                let newName = textField.value;
+                inputTextField.innerHTML = `${newName}`;
+            }
+        })
+        inputTextField.addEventListener('focusout', ({key}) => {
+            // console.log(inputTextField.value);
+
+            let textField = inputTextField.querySelector('input');
+            let newName = textField.value;
+            inputTextField.innerHTML = `${newName}`;
+
+            // try {
+            //     this.untoggleTextField(list, oldName);
+            // } catch (error) {
+            //     // it's fine.
+            // }
+        })
+
+        item.replaceWith(inputTextField);
+
+        // console.log(item);
+
+        // item.setSelectionRange(0, newName.length);
+    }
+
+    // untoggleTextField    (list, oldName) {
+    //     // console.log('untoggleTextField!');
+    //     // console.log(list);
+    //     let names = list.querySelectorAll('.task-col');
+    //     // console.log(names);
+
+    //     for (let i = 0; i < names.length; i++) {
+    //         let currentItem = names[i];
+
+    //         // console.log(currentItem.innerHTML);
+
+    //         let textFields = currentItem.getElementsByTagName("input");
+    //         if (textFields.length > 0) {
+    //             // console.log(textFields[0].value);
+
+    //             // let listItem = document.createElement("div");
+    //             // listItem.innerHTML = textFields[0].value;
+    //             // listItem.classList.add('task-col');
+    //             // listItem.onclick = function() {
+    //             //     toggleTextField(listItem, list);
+    //             // }
+    //             // textFields[0].replaceWith(listItem);
+
+    //             // console.log(oldName);
+    //             let newName = textFields[0].value;
+    //             this.model.renameItemTransaction(oldName, newName);
+
+    //             textFields[0].replaceWith(textFields[0].value);
+    //         }
+    //     }
+    // }
+
     constructor() {}
 
     setModel(initModel) {
@@ -122,10 +149,10 @@ export default class ToDoController {
             if (clickedItemComponentInList.classList.contains('task-col')) {
                 let name = clickedItemComponentInList;
                 // console.log(name);
-                toggleTextField(name, listOfNames);
+                this.toggleTextField(name, listOfNames);
                 // let textField = clickedItemComponentInList;
                 let textFields = document.getElementsByTagName('input');
-                console.log(textFields[0]);
+                // console.log(textFields[0]);
                 textFields[0].select();
             }
         }

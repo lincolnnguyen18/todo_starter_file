@@ -5,6 +5,7 @@ import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import DeleteList_Transaction from './transactions/DeleteList_Transaction.js'
+import RenameItem_Transaction from './transactions/RenameItem_Transaction.js'
 
 function array_move(arr, old_index, new_index) {
     if (new_index >= arr.length) {
@@ -25,6 +26,15 @@ function findListIndex(toDoLists, listId) {
     }
     return listIndex;
 }
+
+// function itemIndex(toDoLists, listId, itemId) {
+//     let itemIndex = -1;
+//     for (let i = 0; (i < toDoLists.length) && (itemIndex < 0); i++) {
+//         if (toDoLists[i].id == listId)
+//             listIndex = i;
+//     }
+//     return itemIndex;
+// }
 
 /**
  * ToDoModel
@@ -48,6 +58,8 @@ export default class ToDoModel {
         // WE'LL USE THIS TO ASSIGN ID NUMBERS TO EVERY LIST ITEM
         this.nextListItemId = 0;
     }
+
+    
 
     moveListToIndex0(listId) {
         let oldIndex = findListIndex(this.toDoLists, listId);
@@ -114,6 +126,11 @@ export default class ToDoModel {
 
     deleteListTransaction() {
         let transaction = new DeleteList_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+    
+    renameItemTransaction(oldName, newName) {
+        let transaction = new RenameItem_Transaction(this, oldName, newName);
         this.tps.addTransaction(transaction);
     }
 

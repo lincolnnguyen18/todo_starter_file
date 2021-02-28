@@ -8,6 +8,8 @@
     padding: 0.1em;
     color: #fff;
     width: 97%;
+    height: 97%;
+    /* outline-color: #ffc800; */
 }
 
 #todo-list-items-div .task-col {
