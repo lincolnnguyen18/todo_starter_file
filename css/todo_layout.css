@@ -17,18 +17,6 @@
     align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .modal-container.show {
     pointer-events: auto;
     opacity: 1;
@@ -295,6 +283,7 @@ body {
     box-shadow: 3px 3px 3px #636363;
     display: grid;
     grid-template-rows: 61px 1fr;
+    padding: 0;
 }
 
 #todo-list-header-card {
@@ -351,7 +340,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     margin: 0;
-    height: 783px;
+    height: 800px;
     overflow: auto;
     overflow-y: overlay;
 }
