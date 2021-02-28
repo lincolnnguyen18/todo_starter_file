@@ -40,7 +40,16 @@ export default class ToDoController {
             console.log("close clicked!");
         }
         document.getElementById("modal-confirm").onmouseup = function() {
-            appModel.removeCurrentList();
+
+
+
+            // appModel.removeCurrentList();
+            appModel.deleteListTransaction();
+
+
+
+
+
             modal_container.classList.remove('show');
             console.log("list deleted!");
         }
@@ -56,18 +65,7 @@ export default class ToDoController {
             let newCurrentListId = e.target.getAttribute("id").split('-')[2];
             console.log(newCurrentListId);
 
-
-            // JUST UNCOMMENT THIS IF YOU DON'T WANT MOST RECENTLY CLICKED TO MOVE TO TOP!
-                this.model.moveListToIndex0(newCurrentListId);
-            // JUST UNCOMMENT THIS IF YOU DON'T WANT MOST RECENTLY CLICKED TO MOVE TO TOP!
-
-
-            newCurrentList = document.getElementById(`todo-list-${newCurrentListId}`);
-
-            // console.log(findListIndex(newCurrentListId));
-            newCurrentList.style.backgroundColor = '#ffc800';
-            newCurrentList.style.color = '#202329';
-            // newCurrentList.classList.add('currentList');
+            this.model.moveListToIndex0(newCurrentListId);
         }
     }
     

@@ -4,6 +4,7 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import DeleteList_Transaction from './transactions/DeleteList_Transaction.js'
 
 function array_move(arr, old_index, new_index) {
     if (new_index >= arr.length) {
@@ -53,6 +54,14 @@ export default class ToDoModel {
         let newIndex = 0;
         array_move(this.toDoLists, oldIndex, newIndex);
         this.view.refreshLists(this.toDoLists);
+
+        this.currentList = this.toDoLists[0];
+        
+        let newCurrentList = document.getElementById(`todo-list-${this.currentList.id}`);
+        newCurrentList.style.backgroundColor = '#ffc800';
+        newCurrentList.style.color = '#202329';
+        this.currentList = this.toDoLists[0];
+        this.loadList(this.currentList.id);
     }
 
     /**
@@ -100,6 +109,11 @@ export default class ToDoModel {
      */
     addNewItemTransaction() {
         let transaction = new AddNewItem_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+
+    deleteListTransaction() {
+        let transaction = new DeleteList_Transaction(this);
         this.tps.addTransaction(transaction);
     }
 
