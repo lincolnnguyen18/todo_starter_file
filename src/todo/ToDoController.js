@@ -39,6 +39,11 @@ export default class ToDoController {
             modal_container.classList.remove('show');
             console.log("close clicked!");
         }
+        document.getElementById("modal-confirm").onmouseup  = function() {
+            appModel.removeCurrentList();
+            modal_container.classList.remove('show');
+            console.log("list deleted!");
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
