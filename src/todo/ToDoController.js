@@ -12,9 +12,9 @@ function toggleTextField(item, list) {
     console.log(item);
 
     untoggleTextField(list);
-    // console.log(item.innerHTML);
+    console.log(item.innerHTML);
     let inputTextField = document.createElement("div");
-    inputTextField.innerHTML = `<input value=${item.innerHTML}>`;
+    inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
     inputTextField.classList.add('task-col');
     inputTextField.addEventListener('keyup', ({key}) => {
         if (key === 'Enter') {
