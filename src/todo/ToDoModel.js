@@ -59,7 +59,24 @@ export default class ToDoModel {
         this.nextListItemId = 0;
     }
 
-    
+    findItemIndex(list, itemId) {
+        let itemIndex = -1;
+        // console.log(list);
+        for (let i = 0; (i < list.length) && (itemIndex < 0); i++) {
+            // console.log(list[i].id);
+            if (list[i].id == itemId)
+                itemIndex = i;
+        }
+        return itemIndex;
+    }
+
+    renameItem(itemId) {
+        // console.log('id of ixtem to rename is: ', itemId);
+        // console.log(this.toDoLists);
+        // console.log(this.currentList);
+        let itemIndex = this.findItemIndex(this.currentList.items, itemId);
+        console.log(itemIndex);
+    }
 
     moveListToIndex0(listId) {
         let oldIndex = findListIndex(this.toDoLists, listId);

@@ -9,7 +9,7 @@
 
 export default class ToDoController {    
 
-    toggleTextField(item, list) {
+    toggleTextField(item, list, itemId) {
 
         // console.log(item);
 
@@ -28,7 +28,6 @@ export default class ToDoController {
                 // let newName = textField.value;
                 // inputTextField.innerHTML = `${newName}`;
                 textField.blur();
-                
             }
         })
         inputTextField.addEventListener('focusout', ({key}) => {
@@ -38,11 +37,12 @@ export default class ToDoController {
             let newName = textField.value;
             inputTextField.innerHTML = `${newName}`;
 
-            // try {
-            //     this.untoggleTextField(list, oldName);
-            // } catch (error) {
-            //     // it's fine.
-            // }
+            // let listId = textField.parentNode.id;
+
+            // this.model.renameItemTransaction(oldName, newName, listId, itemId);
+            this.model.renameItemTransaction(oldName, newName);
+            // console.log('item id clicked on is: ', itemId);
+            this.model.renameItem(itemId, newName);
         })
 
         item.replaceWith(inputTextField);
@@ -140,11 +140,22 @@ export default class ToDoController {
 
 
             let clickedItemComponentInList = e.target;
+
+            // console.log(clickedItemComponentInList.parentNode.parentNode);
+
+            let itemId = e.target.parentNode.id.split('-')[3];
+            // console.log('item id clicked on is: ', itemId);
+
+
             // console.log(clickedItemComponentInList);
             if (clickedItemComponentInList.classList.contains('task-col')) {
                 let name = clickedItemComponentInList;
                 // console.log(name);
-                this.toggleTextField(name, listOfNames);
+
+                this.toggleTextField(name, listOfNames, itemId);
+
+
+
                 // let textField = clickedItemComponentInList;
                 let textFields = document.getElementsByTagName('input');
                 // console.log(textFields[0]);
@@ -194,6 +205,11 @@ export default class ToDoController {
             console.log("list deleted!");
         }
         document.getElementById("todo-lists-list").onclick = e => {
+
+            console.log('fix weird sidebar!');
+            console.log(e.target);
+
+
             let lists = document.getElementById("todo-lists-list").querySelectorAll('div');
             // console.log(lists);
             lists.forEach(function(list) {

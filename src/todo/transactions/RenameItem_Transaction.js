@@ -17,6 +17,7 @@ export default class RenameItem_Transaction extends jsTPS_Transaction {
         // this.itemAdded = this.model.addNewItem();
         if (this.oldName != this.newName) {
             console.log(`change item name '${this.oldName}' to new name '${this.newName}'`);
+            
         }
     }
 
