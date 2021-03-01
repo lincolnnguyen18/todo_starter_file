@@ -28,6 +28,11 @@ export default class ToDoModel {
         this.nextListItemId = 0;
     }
 
+    clearTransactionsStack() {
+        let transactionsStack = this.tps.transactions;
+        this.tps.clearAllTransactions();
+    }
+
     moveCurrentListToIndexZeroOfToDoLists() {
         // Get index of currentList
         let currentListIndex = -1;

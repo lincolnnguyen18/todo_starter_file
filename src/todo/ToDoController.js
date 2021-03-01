@@ -33,6 +33,15 @@ export default class ToDoController {
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
+        // If clicked list != current list (if it exists) then clear transaction stack
+        let clickedListId = listId;
+        let currentListId;
+        let transactionStackBefore = this.model.tps.transactions;
+        if (this.model.currentList != null && clickedListId != this.model.currentList.id) {
+            currentListId = this.model.currentList.id;
+            this.model.clearTransactionsStack();
+        }
+        let transactionStackAfter = this.model.tps.transactions;
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
         // Refresh lists each time a list is clicked
