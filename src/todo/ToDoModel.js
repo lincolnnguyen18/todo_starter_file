@@ -4,6 +4,7 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import DeleteItem_Transaction from './transactions/DeleteItem_Transaction.js'
 
 /**
  * ToDoModel
@@ -70,6 +71,12 @@ export default class ToDoModel {
     //     return newItem;
     // }
 
+    addItemAtItsIndex(item) {
+        let currentList = this.currentList;
+        this.currentList.addItemAtItsIndex(item);
+        this.view.viewList(this.currentList);
+    }
+
     /**
      * addItemToList
      * 
@@ -96,6 +103,11 @@ export default class ToDoModel {
      */
     addNewItemTransaction() {
         let transaction = new AddNewItem_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+
+    deleteItemTransction(itemToDelete) {
+        let transaction = new DeleteItem_Transaction(this, itemToDelete);
         this.tps.addTransaction(transaction);
     }
 

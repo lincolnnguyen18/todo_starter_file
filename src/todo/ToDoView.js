@@ -95,6 +95,22 @@ export default class ToDoView {
                                 + "</div>";
             itemsListDiv.innerHTML += listItemElement;
         }
+        // Set events for list item controls (move item up/down, delete item)
+        for (let i = 0; i < list.items.length; i++) {
+            let listItem = list.items[i];
+            let listItemHTML = document.querySelector(`#todo-list-item-${listItem.id}`);
+            let listItemControls = listItemHTML.getElementsByClassName('list-item-control');
+            let listItemMoveUp = listItemControls[0];
+            let listItemMoveDown = listItemControls[1];
+            let listItemDelete = listItemControls[2];
+            let model = this.controller.model;
+            listItemDelete.onmouseup = function() {
+                // listItem example
+                // ToDoListItem {id: 2, description: "Make You Cry", dueDate: "2019-12-30", status: "incomplete", index: 2}
+                model.deleteItemTransction(listItem);
+                model.setUndoRedoButtonStates();
+            }
+        }
 
         // Set add button state
         this.controller.model.setAddItemDeleteListCloseListButtonState();
