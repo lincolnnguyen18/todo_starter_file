@@ -4,6 +4,7 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import AddList_Transaction from './transactions/AddList_Transaction.js'
 import DeleteList_Transaction from './transactions/DeleteList_Transaction.js'
 import RenameItem_Transaction from './transactions/RenameItem_Transaction.js'
 import RenameList_Transaction from './transactions/RenameList_Transaction.js'
@@ -45,6 +46,22 @@ function findListIndex(toDoLists, listId) {
  * This class manages all the app data.
  */
 export default class ToDoModel {
+
+    findListIndex2(listId) {
+        let listIndex = -1;
+        // console.log(this.toDoLists);
+        for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
+            // console.log(listId);
+            // console.log(this.toDoLists[i].id);
+            // console.log(this.toDoLists[i].id == listId);
+            if (this.toDoLists[i].id == listId)
+                listIndex = i;
+        }
+        return listIndex;
+    }
+
+
+
     constructor() {
         // THIS WILL STORE ALL OF OUR LISTS
         this.toDoLists = [];
@@ -163,6 +180,11 @@ export default class ToDoModel {
         this.tps.addTransaction(transaction);
     }
 
+    addListTransaction() {
+        let transaction = new AddList_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+
     deleteListTransaction() {
         let transaction = new DeleteList_Transaction(this);
         this.tps.addTransaction(transaction);
@@ -234,15 +256,6 @@ export default class ToDoModel {
     }
 
     /**
-     * Redo the current transaction if there is one.
-     */
-    redo() {
-        if (this.tps.hasTransactionToRedo()) {
-            this.tps.doTransaction();
-        }
-    }   
-
-    /**
      * Remove the itemToRemove from the current list and refresh.
      */
     removeItem(itemToRemove) {
@@ -266,6 +279,8 @@ export default class ToDoModel {
         this.view.refreshLists(this.toDoLists);
     }
 
+
+
     // WE NEED THE VIEW TO UPDATE WHEN DATA CHANGES.
     setView(initView) {
         this.view = initView;
@@ -277,6 +292,21 @@ export default class ToDoModel {
     undo() {
         if (this.tps.hasTransactionToUndo()) {
             this.tps.undoTransaction();
+            console.log(this.tps.transactions);
+        } else {
+            console.log("no more undo!");
+        }
+    } 
+
+    /**
+     * Redo the current transaction if there is one.
+     */
+    redo() {
+        if (this.tps.hasTransactionToRedo()) {
+            this.tps.doTransaction();
+            console.log(this.tps.transactions);
+        } else {
+            console.log("no more redo!");
         }
     } 
 }

@@ -163,26 +163,33 @@ export default class ToDoController {
             }
         }
 
-        let undoEnabled = this.model.tps.hasTransactionToRedo();
-        let redoEnabled = this.model.tps.hasTransactionToUndo();
-        console.log('undoEnabled:', redoEnabled);
-        console.log('redoEnabled:', undoEnabled);
-        let undoButton = document.getElementById('undo-button');
-        let redoButton = document.getElementById('redo-button');
-        if (undoEnabled) {
-            // undoButton.disabled = false;
-            undoButton.classList.remove('disabled');
-        } else {
-            // undoButton.disabled = true;
-            undoButton.classList.add('disabled');
-        }
-        if (redoEnabled) {
-            // undoButton.disabled = false;
-            redoButton.classList.remove('disabled');
-        } else {
-            // undoButton.disabled = true;
-            redoButton.classList.add('disabled');
-        }
+
+        
+
+
+
+        // let undoEnabled = this.model.tps.hasTransactionToRedo();
+        // let redoEnabled = this.model.tps.hasTransactionToUndo();
+        // console.log('undoEnabled:', redoEnabled);
+        // console.log('redoEnabled:', undoEnabled);
+        // let undoButton = document.getElementById('undo-button');
+        // let redoButton = document.getElementById('redo-button');
+        // if (undoEnabled) {
+        //     // undoButton.disabled = false;
+        //     undoButton.classList.remove('disabled');
+        // } else {
+        //     // undoButton.disabled = true;
+        //     undoButton.classList.add('disabled');
+        // }
+        // if (redoEnabled) {
+        //     // undoButton.disabled = false;
+        //     redoButton.classList.remove('disabled');
+        // } else {
+        //     // undoButton.disabled = true;
+        //     redoButton.classList.add('disabled');
+        // }
+
+
 
 
 
@@ -191,10 +198,11 @@ export default class ToDoController {
 
         // SETUP ALL THE EVENT HANDLERS SINCE THEY USE THE MODEL
         document.getElementById("add-list-button").onmouseup = function () {
-            appModel.addNewList();
+            // appModel.addNewList();
+            appModel.addListTransaction();
         }
         document.getElementById("undo-button").onmouseup = function () {
-            appModel.undo();
+            appModel.undo();    
         }
         document.getElementById("redo-button").onmouseup = function () {
             appModel.redo();

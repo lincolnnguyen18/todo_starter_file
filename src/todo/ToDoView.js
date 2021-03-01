@@ -120,31 +120,34 @@ export default class ToDoView {
             itemsListDiv.innerHTML += listItemElement;
         }
 
-        let undoEnabled = this.controller.model.tps.hasTransactionToRedo();
-        let redoEnabled = this.controller.model.tps.hasTransactionToUndo();
-        // let stack = this.controller.model.tps.transactions;
-        // let currentIndex = this.controller.model.tps.mostRecentTransaction;
-        console.log('undoEnabled:', redoEnabled);
-        console.log('redoEnabled:', undoEnabled);
-        // console.log(stack);
-        // console.log(currentIndex);
+        // let undoEnabled = this.controller.model.tps.hasTransactionToRedo();
+        // let redoEnabled = this.controller.model.tps.hasTransactionToUndo();
+        // // let stack = this.controller.model.tps.transactions;
+        // // let currentIndex = this.controller.model.tps.mostRecentTransaction;
+        // console.log('undoEnabled:', redoEnabled);
+        // console.log('redoEnabled:', undoEnabled);
+        // // console.log(stack);
+        // // console.log(currentIndex);
 
-        let undoButton = document.getElementById('undo-button');
-        let redoButton = document.getElementById('redo-button');
-        if (undoEnabled) {
-            // undoButton.disabled = false;
-            undoButton.classList.remove('disabled');
-        } else {
-            // undoButton.disabled = true;
-            undoButton.classList.add('disabled');
-        }
-        if (redoEnabled) {
-            // undoButton.disabled = false;
-            redoButton.classList.remove('disabled');
-        } else {
-            // undoButton.disabled = true;
-            redoButton.classList.add('disabled');
-        }
+        // let undoButton = document.getElementById('undo-button');
+        // let redoButton = document.getElementById('redo-button');
+        // if (undoEnabled) {
+        //     // undoButton.disabled = false;
+        //     undoButton.classList.remove('disabled');
+        // } else {
+        //     // undoButton.disabled = true;
+        //     undoButton.classList.add('disabled');
+        // }
+        // if (redoEnabled) {
+        //     // undoButton.disabled = false;
+        //     redoButton.classList.remove('disabled');
+        // } else {
+        //     // undoButton.disabled = true;
+        //     redoButton.classList.add('disabled');
+        // }
+
+
+
     }
 
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
