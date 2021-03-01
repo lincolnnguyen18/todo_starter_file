@@ -28,8 +28,8 @@ export default class ToDoModel {
         this.nextListItemId = 0;
     }
 
-    clearTransactionsStack() {
-        let transactionsStack = this.tps.transactions;
+    clearTransactionStack() {
+        let transactionStack = this.tps.transactions;
         this.tps.clearAllTransactions();
     }
 
@@ -166,6 +166,21 @@ export default class ToDoModel {
     removeItem(itemToRemove) {
         this.currentList.removeItem(itemToRemove);
         this.view.viewList(this.currentList);
+    }
+
+    setUndoRedoButtonStates() {
+        let undoState = this.tps.hasTransactionToUndo();
+        let redoState = this.tps.hasTransactionToRedo();
+        let undoButton = document.getElementById('undo-button');
+        let redoButton = document.getElementById('redo-button');
+        if (undoState != true)
+            undoButton.setAttribute("style", "background-color: red;");
+        else
+            undoButton.setAttribute("style", "background-color: #353a44;");
+        if (redoState != true)
+            redoButton.setAttribute("style", "background-color: red;");
+        else
+            undoButton.setAttribute("style", "background-color: #353a44;");
     }
 
     /**

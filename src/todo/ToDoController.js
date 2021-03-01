@@ -28,6 +28,7 @@ export default class ToDoController {
         }
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();
+            appModel.setUndoRedoButtonStates();
         }
     }
     
@@ -39,12 +40,14 @@ export default class ToDoController {
         let transactionStackBefore = this.model.tps.transactions;
         if (this.model.currentList != null && clickedListId != this.model.currentList.id) {
             currentListId = this.model.currentList.id;
-            this.model.clearTransactionsStack();
+            this.model.clearTransactionStack();
         }
         let transactionStackAfter = this.model.tps.transactions;
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
         // Refresh lists each time a list is clicked
         this.model.view.refreshListsDefault();
+        // Update undo redo button states (for when transaction stack is cleared and buttons become disabled)
+        this.model.setUndoRedoButtonStates();
     }
 }
