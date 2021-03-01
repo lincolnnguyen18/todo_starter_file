@@ -27,16 +27,18 @@ export default class ToDoController {
         }
         document.getElementById("delete-list-button").onmouseup = function() {
             appModel.removeCurrentList();
-            appModel.setAddItemDeleteListButtonState();
+            appModel.setAddItemDeleteListCloseListButtonState();
         }
         document.getElementById("add-item-button").onmouseup = function() {
             appModel.addNewItemTransaction();
             appModel.setUndoRedoButtonStates();
         }
-        // document.getElementById("close-list-button").onmouseup = function() {
-        //     appModel.addNewItemTransaction();
-        //     appModel.setUndoRedoButtonStates();
-        // }
+        document.getElementById("close-list-button").onmouseup = function() {
+            appModel.currentList = null;
+            appModel.view.clearItemsList();
+            appModel.setUndoRedoButtonStates();
+            appModel.setAddItemDeleteListCloseListButtonState();
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD

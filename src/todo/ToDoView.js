@@ -97,7 +97,7 @@ export default class ToDoView {
         }
 
         // Set add button state
-        this.controller.model.setAddItemDeleteListButtonState();
+        this.controller.model.setAddItemDeleteListCloseListButtonState();
     }
 
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES

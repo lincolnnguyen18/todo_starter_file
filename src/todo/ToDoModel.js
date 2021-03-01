@@ -190,10 +190,11 @@ export default class ToDoModel {
             redoButton.classList.remove('disabled');
     }
 
-    setAddItemDeleteListButtonState() {
+    setAddItemDeleteListCloseListButtonState() {
         let addAndDeleteListState;
         let addButton = document.getElementById('add-item-button');
         let deleteListButton = document.getElementById('delete-list-button');
+        let closeListButton = document.getElementById('close-list-button');
         if (this.currentList != null)
             addAndDeleteListState = true;
         else
@@ -201,9 +202,11 @@ export default class ToDoModel {
         if (addAndDeleteListState != true) {
             addButton.classList.add('disabled');
             deleteListButton.classList.add('disabled');
+            closeListButton.classList.add('disabled');
         } else {
             addButton.classList.remove('disabled');
-            deleteListButton.classList.remove('disabled');   
+            deleteListButton.classList.remove('disabled');
+            closeListButton.classList.remove('disabled');
         }
     }
 
