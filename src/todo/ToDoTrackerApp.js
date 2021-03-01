@@ -47,6 +47,7 @@ export class ToDoTrackerApp {
         xmlhttp.send();
         // Set undo redo button initial states (disabled)
         this.model.setUndoRedoButtonStates();
+        this.model.setAddItemButtonState();
     }
 }
 

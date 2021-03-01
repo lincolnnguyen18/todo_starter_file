@@ -95,6 +95,9 @@ export default class ToDoView {
                                 + "</div>";
             itemsListDiv.innerHTML += listItemElement;
         }
+
+        // Set add button state
+        this.controller.model.setAddItemButtonState();
     }
 
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES

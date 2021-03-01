@@ -27,6 +27,7 @@ export default class ToDoController {
         }
         document.getElementById("delete-list-button").onmousedown = function() {
             appModel.removeCurrentList();
+            appModel.setAddItemButtonState();
         }
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();

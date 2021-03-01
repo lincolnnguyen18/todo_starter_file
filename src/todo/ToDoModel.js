@@ -118,7 +118,11 @@ export default class ToDoModel {
      */
     addNewItem() {
         let newItem = new ToDoListItem(this.nextListItemId++);
+        let currentList = this.currentList.items;
+        let newItemIndex = currentList.length - 1;
+        newItem.index = newItemIndex
         this.currentList.items.push(newItem);
+        let newItemState = newItem;
         this.view.viewList(this.currentList);
         return newItem;
     }
@@ -176,11 +180,24 @@ export default class ToDoModel {
         if (undoState != true)
             undoButton.setAttribute("style", "background-color: red;");
         else
-            undoButton.setAttribute("style", "background-color: #353a44;");
+            undoButton.setAttribute("style", "background-color: transparent;");
         if (redoState != true)
             redoButton.setAttribute("style", "background-color: red;");
         else
-            redoButton.setAttribute("style", "background-color: #353a44;");
+            redoButton.setAttribute("style", "background-color: transparent;");
+    }
+
+    setAddItemButtonState() {
+        let addState;
+        let addButton = document.getElementById('add-item-button');
+        if (this.currentList != null)
+            addState = true;
+        else
+            addState = false;
+        if (addState != true)
+            addButton.setAttribute("style", "background-color: red;");
+        else
+            addButton.setAttribute("style", "background-color: transparent;");
     }
 
     /**
