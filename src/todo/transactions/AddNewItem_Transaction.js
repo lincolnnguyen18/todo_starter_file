@@ -8,11 +8,18 @@ export default class AddNewItem_Transaction extends jsTPS_Transaction {
     constructor(initModel) {
         super();
         this.model = initModel;
+        this.itemAdded = null;
     }
 
     doTransaction() {
-        // MAKE A NEW ITEM
-        this.itemAdded = this.model.addNewItem();
+        let model = this.model;
+        // if itemAdded == null then create initial item
+        if (this.itemAdded == null)
+            this.itemAdded = model.addNewItem();
+        // else (redoing addItem), add saved itemAdded at its original index and refresh list in view
+        else
+            model.currentList.addItemAtItsIndex(this.itemAdded);
+            model.view.viewList(model.currentList);
     }
 
     undoTransaction() {

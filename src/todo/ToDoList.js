@@ -40,6 +40,12 @@ export default class ToDoList {
         this.items.push(itemToAdd);
     }
 
+    addItemAtItsIndex(item) {
+        let items = this.items;
+        let itemIndex = item.index;
+        items.splice(itemIndex, 0, item);
+    }
+
     /**
      * Finds and then removes the argument from the list.
      * 

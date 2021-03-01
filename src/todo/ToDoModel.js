@@ -161,7 +161,7 @@ export default class ToDoModel {
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
-        // for debugging
+        // for debugging lists state
         let lists = this.toDoLists;
     }
 
