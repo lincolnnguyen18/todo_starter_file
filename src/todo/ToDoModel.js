@@ -179,13 +179,15 @@ export default class ToDoModel {
         let undoButton = document.getElementById('undo-button');
         let redoButton = document.getElementById('redo-button');
         if (undoState != true)
-            undoButton.setAttribute("style", "background-color: red;");
+            // undoButton.classList.add('disabled');
+            undoButton.classList.add('disabled');
         else
-            undoButton.setAttribute("style", "background-color: transparent;");
+            // undoButton.classList.remove('disabled');
+            undoButton.classList.remove('disabled');
         if (redoState != true)
-            redoButton.setAttribute("style", "background-color: red;");
+            redoButton.classList.add('disabled');
         else
-            redoButton.setAttribute("style", "background-color: transparent;");
+            redoButton.classList.remove('disabled');
     }
 
     setAddItemDeleteListButtonState() {
@@ -197,11 +199,11 @@ export default class ToDoModel {
         else
             addAndDeleteListState = false;
         if (addAndDeleteListState != true) {
-            addButton.setAttribute("style", "background-color: red;");
-            deleteListButton.setAttribute("style", "background-color: red;");
+            addButton.classList.add('disabled');
+            deleteListButton.classList.add('disabled');
         } else {
-            addButton.setAttribute("style", "background-color: transparent;");
-            deleteListButton.setAttribute("style", "background-color: transparent;");   
+            addButton.classList.remove('disabled');
+            deleteListButton.classList.remove('disabled');   
         }
     }
 

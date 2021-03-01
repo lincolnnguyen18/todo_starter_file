@@ -14,25 +14,29 @@ export default class ToDoController {
         let appModel = this.model;
 
         // SETUP ALL THE EVENT HANDLERS SINCE THEY USE THE MODEL
-        document.getElementById("add-list-button").onmousedown = function() {
+        document.getElementById("add-list-button").onmouseup = function() {
             appModel.addNewList();
         }
-        document.getElementById("undo-button").onmousedown = function() {
+        document.getElementById("undo-button").onmouseup = function() {
             appModel.undo();
             appModel.setUndoRedoButtonStates();
         }
-        document.getElementById("redo-button").onmousedown = function() {
+        document.getElementById("redo-button").onmouseup = function() {
             appModel.redo();
             appModel.setUndoRedoButtonStates();
         }
-        document.getElementById("delete-list-button").onmousedown = function() {
+        document.getElementById("delete-list-button").onmouseup = function() {
             appModel.removeCurrentList();
             appModel.setAddItemDeleteListButtonState();
         }
-        document.getElementById("add-item-button").onmousedown = function() {
+        document.getElementById("add-item-button").onmouseup = function() {
             appModel.addNewItemTransaction();
             appModel.setUndoRedoButtonStates();
         }
+        // document.getElementById("close-list-button").onmouseup = function() {
+        //     appModel.addNewItemTransaction();
+        //     appModel.setUndoRedoButtonStates();
+        // }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD

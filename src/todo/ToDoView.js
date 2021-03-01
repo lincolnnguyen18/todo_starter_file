@@ -36,7 +36,7 @@ export default class ToDoView {
 
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
         let thisController = this.controller;
-        listElement.onmousedown = function() {
+        listElement.onmouseup = function() {
             thisController.handleLoadList(newList.id);
         }
     }
