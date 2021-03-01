@@ -19,9 +19,11 @@ export default class ToDoController {
         }
         document.getElementById("undo-button").onmousedown = function() {
             appModel.undo();
+            appModel.setUndoRedoButtonStates();
         }
         document.getElementById("redo-button").onmousedown = function() {
             appModel.redo();
+            appModel.setUndoRedoButtonStates();
         }
         document.getElementById("delete-list-button").onmousedown = function() {
             appModel.removeCurrentList();

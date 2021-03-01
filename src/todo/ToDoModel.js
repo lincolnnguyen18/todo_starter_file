@@ -180,7 +180,7 @@ export default class ToDoModel {
         if (redoState != true)
             redoButton.setAttribute("style", "background-color: red;");
         else
-            undoButton.setAttribute("style", "background-color: #353a44;");
+            redoButton.setAttribute("style", "background-color: #353a44;");
     }
 
     /**
