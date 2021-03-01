@@ -4,41 +4,6 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
-import AddList_Transaction from './transactions/AddList_Transaction.js'
-import DeleteList_Transaction from './transactions/DeleteList_Transaction.js'
-import RenameItem_Transaction from './transactions/RenameItem_Transaction.js'
-import RenameList_Transaction from './transactions/RenameList_Transaction.js'
-
-function array_move(arr, old_index, new_index) {
-    if (new_index >= arr.length) {
-        var k = new_index - arr.length + 1;
-        while (k--) {
-            arr.push(undefined);
-        }
-    }
-    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    return arr; // for testing
-};
-
-function findListIndex(toDoLists, listId) {
-    let listIndex = -1;
-    for (let i = 0; (i < toDoLists.length) && (listIndex < 0); i++) {
-        // console.log(listId);
-        // console.log(toDoLists[i].id);
-        if (toDoLists[i].id == listId)
-            listIndex = i;
-    }
-    return listIndex;
-}
-
-// function itemIndex(toDoLists, listId, itemId) {
-//     let itemIndex = -1;
-//     for (let i = 0; (i < toDoLists.length) && (itemIndex < 0); i++) {
-//         if (toDoLists[i].id == listId)
-//             listIndex = i;
-//     }
-//     return itemIndex;
-// }
 
 /**
  * ToDoModel
@@ -46,22 +11,6 @@ function findListIndex(toDoLists, listId) {
  * This class manages all the app data.
  */
 export default class ToDoModel {
-
-    findListIndex2(listId) {
-        let listIndex = -1;
-        // console.log(this.toDoLists);
-        for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
-            // console.log(listId);
-            // console.log(this.toDoLists[i].id);
-            // console.log(this.toDoLists[i].id == listId);
-            if (this.toDoLists[i].id == listId)
-                listIndex = i;
-        }
-        return listIndex;
-    }
-
-
-
     constructor() {
         // THIS WILL STORE ALL OF OUR LISTS
         this.toDoLists = [];
@@ -77,59 +26,6 @@ export default class ToDoModel {
 
         // WE'LL USE THIS TO ASSIGN ID NUMBERS TO EVERY LIST ITEM
         this.nextListItemId = 0;
-    }
-
-    findItemIndex(list, itemId) {
-        let itemIndex = -1;
-        // console.log(list);
-        for (let i = 0; (i < list.length) && (itemIndex < 0); i++) {
-            // console.log(list[i].id);
-            if (list[i].id == itemId)
-                itemIndex = i;
-        }
-        return itemIndex;
-    }
-
-    renameList(newName, listId) {
-        // console.log('renameList called!');
-        // console.log(this.toDoLists);
-        let listIndex = findListIndex(this.toDoLists, listId);
-        // console.log(listIndex);
-        this.toDoLists[listIndex].name = newName;
-        // this.moveListToIndex0(listId);
-
-
-        let currentListId = this.currentList.id;
-        this.view.refreshLists(this.toDoLists);
-        document.getElementById(`todo-list-${currentListId}`).click();
-
-
-        // this.view.refreshLists(this.toDoLists);
-    }
-
-    renameItem(itemId, newName) {
-        // console.log('id of ixtem to rename is: ', itemId);
-        // console.log(this.toDoLists);
-        let itemIndex = this.findItemIndex(this.currentList.items, itemId);
-        // console.log(this.currentList.items);
-        // console.log(itemIndex);
-        this.currentList.items[itemIndex].description = newName;
-        this.loadList(this.currentList.id);
-    }
-
-    moveListToIndex0(listId) {
-        let oldIndex = findListIndex(this.toDoLists, listId);
-        let newIndex = 0;
-        array_move(this.toDoLists, oldIndex, newIndex);
-        this.view.refreshLists(this.toDoLists);
-
-        this.currentList = this.toDoLists[0];
-        
-        let newCurrentList = document.getElementById(`todo-list-${this.currentList.id}`);
-        newCurrentList.style.backgroundColor = '#ffc800';
-        newCurrentList.style.color = '#202329';
-        this.currentList = this.toDoLists[0];
-        this.loadList(this.currentList.id);
     }
 
     /**
@@ -177,26 +73,6 @@ export default class ToDoModel {
      */
     addNewItemTransaction() {
         let transaction = new AddNewItem_Transaction(this);
-        this.tps.addTransaction(transaction);
-    }
-
-    addListTransaction() {
-        let transaction = new AddList_Transaction(this);
-        this.tps.addTransaction(transaction);
-    }
-
-    deleteListTransaction() {
-        let transaction = new DeleteList_Transaction(this);
-        this.tps.addTransaction(transaction);
-    }
-    
-    renameItemTransaction(oldName, newName, itemId) {
-        let transaction = new RenameItem_Transaction(this, oldName, newName, itemId);
-        this.tps.addTransaction(transaction);
-    }
-
-    renameListTransaction(oldName, newName, listId) {
-        let transaction = new RenameList_Transaction(this, oldName, newName, listId);
         this.tps.addTransaction(transaction);
     }
 
@@ -256,6 +132,15 @@ export default class ToDoModel {
     }
 
     /**
+     * Redo the current transaction if there is one.
+     */
+    redo() {
+        if (this.tps.hasTransactionToRedo()) {
+            this.tps.doTransaction();
+        }
+    }   
+
+    /**
      * Remove the itemToRemove from the current list and refresh.
      */
     removeItem(itemToRemove) {
@@ -279,8 +164,6 @@ export default class ToDoModel {
         this.view.refreshLists(this.toDoLists);
     }
 
-
-
     // WE NEED THE VIEW TO UPDATE WHEN DATA CHANGES.
     setView(initView) {
         this.view = initView;
@@ -292,36 +175,6 @@ export default class ToDoModel {
     undo() {
         if (this.tps.hasTransactionToUndo()) {
             this.tps.undoTransaction();
-            console.log(this.tps.transactions);
-            console.log(this.tps.mostRecentTransaction);
-            // console.log(this.tps.transactions[0]);
-            // console.log(this.tps.transactions[0] instanceof AddNewItem_Transaction);
-            console.log(this.clearNonListTransactions());
-        } else {
-            console.log("no more undo!");
         }
     } 
-
-    /**
-     * Redo the current transaction if there is one.
-     */
-    redo() {
-        if (this.tps.hasTransactionToRedo()) {
-            this.tps.doTransaction();
-            console.log(this.tps.transactions);
-            console.log(this.tps.mostRecentTransaction);
-            console.log(this.clearNonListTransactions());
-        } else {
-            console.log("no more redo!");
-        }
-    }
-
-    clearNonListTransactions() {
-        // this.tps.transactions = this.tps.transactions.filter(function (e) {
-        //     return e instanceof AddList_Transaction || e instanceof DeleteList_Transaction || e instanceof RenameList_Transaction
-        // });
-        return this.tps.transactions.filter(function (e) {
-            return e instanceof AddList_Transaction || e instanceof DeleteList_Transaction || e instanceof RenameList_Transaction
-        });
-    }
 }

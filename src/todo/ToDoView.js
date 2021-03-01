@@ -8,41 +8,6 @@
 export default class ToDoView {
     constructor() {}
 
-    toggleTextField(item) {
-        let oldName = item.innerHTML;
-
-        if (item.querySelector('input')) {
-            return;
-        }
-
-        // console.log(item);
-
-        let inputTextField = document.createElement("input");
-        // inputTextField.innerHTML = `<input value="${item.innerHTML}">`;
-        inputTextField.value = oldName;
-        inputTextField.addEventListener('keyup', ({ key }) => {
-            if (key === 'Enter') {
-                let textField = document.querySelector('input');
-                textField.blur();
-            }
-        })
-        inputTextField.addEventListener('focusout', ({ key }) => {
-            let textField = document.querySelector('#todo-lists-list input');
-            let newName = textField.value;
-            inputTextField.innerHTML = `${newName}`;
-            if (oldName != newName) {
-                // console.log('oldname newname');
-                let listId = item.getAttribute("id").split('-')[2];
-                // console.log();
-                this.controller.model.renameListTransaction(oldName, newName, listId);
-            }
-        })
-        item.innerHTML = '';
-        // console.log(item);
-        item.appendChild(inputTextField);
-        // console.log(item);
-    }
-
     // ADDS A LIST TO SELECT FROM IN THE LEFT SIDEBAR
     appendNewListToView(newList) {
         // GET THE UI CONTROL WE WILL APPEND IT TO
@@ -58,18 +23,8 @@ export default class ToDoView {
 
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
         let thisController = this.controller;
-        listElement.onclick = function() {
+        listElement.onmousedown = function() {
             thisController.handleLoadList(newList.id);
-            // console.log(newList);
-        }
-        let thisView = this;
-        listElement.ondblclick = function() {
-            // console.log('DOUBE DOUBLE TROUBLE!');
-            thisView.toggleTextField(document.getElementById(`todo-list-${newList.id}`));
-            // thisController.model.renameListTransaction('Old', 'New');
-            // console.log(thisController.model);
-            let textField = document.querySelector('#todo-lists-list input');
-            textField.select();
         }
     }
 
@@ -119,35 +74,6 @@ export default class ToDoView {
                                 + "</div>";
             itemsListDiv.innerHTML += listItemElement;
         }
-
-        // let undoEnabled = this.controller.model.tps.hasTransactionToRedo();
-        // let redoEnabled = this.controller.model.tps.hasTransactionToUndo();
-        // // let stack = this.controller.model.tps.transactions;
-        // // let currentIndex = this.controller.model.tps.mostRecentTransaction;
-        // console.log('undoEnabled:', redoEnabled);
-        // console.log('redoEnabled:', undoEnabled);
-        // // console.log(stack);
-        // // console.log(currentIndex);
-
-        // let undoButton = document.getElementById('undo-button');
-        // let redoButton = document.getElementById('redo-button');
-        // if (undoEnabled) {
-        //     // undoButton.disabled = false;
-        //     undoButton.classList.remove('disabled');
-        // } else {
-        //     // undoButton.disabled = true;
-        //     undoButton.classList.add('disabled');
-        // }
-        // if (redoEnabled) {
-        //     // undoButton.disabled = false;
-        //     redoButton.classList.remove('disabled');
-        // } else {
-        //     // undoButton.disabled = true;
-        //     redoButton.classList.add('disabled');
-        // }
-
-
-
     }
 
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
