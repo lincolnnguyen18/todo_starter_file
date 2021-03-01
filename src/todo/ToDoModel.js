@@ -31,11 +31,11 @@ export default class ToDoModel {
     moveCurrentListToIndexZeroOfToDoLists() {
         // Get index of currentList
         let currentListIndex = -1;
-        for (let i = 0; (i < this.toDoLists.length) && (currentListIndex < 0); i++) {
+        for (let i = 0; (i < this.toDoLists.length) && (currentListIndex < 0) && this.currentList != null; i++) {
             if (this.toDoLists[i].id == this.currentList.id)
             currentListIndex = i;
         }
-        // Move currentList to index 0 of toDoLists
+        // If currentList != null, move currentList to index 0 of toDoLists
         let oldArray = this.toDoLists;
         if (currentListIndex >= 0) {
             let currentList = oldArray.splice(currentListIndex, 1)[0];
@@ -168,7 +168,7 @@ export default class ToDoModel {
      */
     removeCurrentList() {
         let indexOfList = -1;
-        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0); i++) {
+        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0) && this.currentList != null; i++) {
             if (this.toDoLists[i].id === this.currentList.id) {
                 indexOfList = i;
             }
@@ -176,7 +176,7 @@ export default class ToDoModel {
         this.toDoLists.splice(indexOfList, 1);
         this.currentList = null;
         this.view.clearItemsList();
-        this.view.refreshLists(this.toDoLists);
+        this.view.refreshListsDefault();
     }
 
     // WE NEED THE VIEW TO UPDATE WHEN DATA CHANGES.
