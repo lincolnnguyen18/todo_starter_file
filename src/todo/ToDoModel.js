@@ -59,16 +59,16 @@ export default class ToDoModel {
         this.currentList.push(itemToAdd);
     }
 
-    /**
-     * addNewItemToCurrentList
-     * 
-     * This function adds a brand new default item to the current list.
-     */
-    addNewItemToCurrentList() {
-        let newItem = new ToDoListItem(this.nextListItemId++);
-        this.addItemToList(this.currentList, newItem);
-        return newItem;
-    }
+    // /**
+    //  * addNewItemToCurrentList
+    //  * 
+    //  * This function adds a brand new default item to the current list.
+    //  */
+    // addNewItemToCurrentList() {
+    //     let newItem = new ToDoListItem(this.nextListItemId++);
+    //     this.addItemToList(this.currentList, newItem);
+    //     return newItem;
+    // }
 
     /**
      * addItemToList
@@ -80,6 +80,9 @@ export default class ToDoModel {
         newItem.setDescription(initDescription);
         newItem.setDueDate(initDueDate);
         newItem.setStatus(initStatus);
+
+        newItem.index = list.items.length;
+
         list.addItem(newItem);
         if (this.currentList) {
             this.view.refreshList(list);
@@ -113,32 +116,36 @@ export default class ToDoModel {
         return newList;
     }
 
+    getNewItemIndexForCurrentList() {
+        let currentList = this.currentList.items;
+        let newItemIndex = currentList.length;
+        return newItemIndex;
+    }
+
     /**
      * Adds a brand new default item to the current list's items list and refreshes the view.
      */
     addNewItem() {
         let newItem = new ToDoListItem(this.nextListItemId++);
         // Set newItem's index
-        let currentList = this.currentList.items;
-        let newItemIndex = currentList.length - 1;
-        newItem.index = newItemIndex
+        newItem.index = this.getNewItemIndexForCurrentList();
         this.currentList.items.push(newItem);
-        let newItemState = newItem;
+        // Refresh view
         this.view.viewList(this.currentList);
         return newItem;
     }
 
-    /**
-     * Makes a new list item with the provided data and adds it to the list.
-     */
-    loadItemIntoList(list, description, due_date, assigned_to, completed) {
-        let newItem = new ToDoListItem();
-        newItem.setDescription(description);
-        newItem.setDueDate(due_date);
-        newItem.setAssignedTo(assigned_to);
-        newItem.setCompleted(completed);
-        this.addItemToList(list, newItem);
-    }
+    // /**
+    //  * Makes a new list item with the provided data and adds it to the list.
+    //  */
+    // loadItemIntoList(list, description, due_date, assigned_to, completed) {
+    //     let newItem = new ToDoListItem();
+    //     newItem.setDescription(description);
+    //     newItem.setDueDate(due_date);
+    //     newItem.setAssignedTo(assigned_to);
+    //     newItem.setCompleted(completed);
+    //     this.addItemToList(list, newItem);
+    // }
 
     /**
      * Load the items for the listId list into the UI.
@@ -154,6 +161,8 @@ export default class ToDoModel {
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
+        // for debugging
+        let lists = this.toDoLists;
     }
 
     /**
