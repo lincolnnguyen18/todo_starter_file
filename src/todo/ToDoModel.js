@@ -28,6 +28,21 @@ export default class ToDoModel {
         this.nextListItemId = 0;
     }
 
+    moveCurrentListToIndexZeroOfToDoLists() {
+        // Get index of currentList
+        let currentListIndex = -1;
+        for (let i = 0; (i < this.toDoLists.length) && (currentListIndex < 0); i++) {
+            if (this.toDoLists[i].id == this.currentList.id)
+            currentListIndex = i;
+        }
+        // Move currentList to index 0 of toDoLists
+        let oldArray = this.toDoLists;
+        if (currentListIndex >= 0) {
+            let currentList = oldArray.splice(currentListIndex, 1)[0];
+            oldArray.unshift(currentList);
+        }
+    }
+
     /**
      * addItemToCurrentList
      * 

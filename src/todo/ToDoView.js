@@ -64,6 +64,10 @@ export default class ToDoView {
     }
 
     refreshListsDefault() {
+        // Move currentList to index 0 of toDoLists
+        let model = this.controller.model;
+        model.moveCurrentListToIndexZeroOfToDoLists();
+        // Refresh list of lists
         this.refreshLists(this.controller.model.toDoLists);
     }
 
