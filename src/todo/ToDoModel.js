@@ -118,6 +118,7 @@ export default class ToDoModel {
      */
     addNewItem() {
         let newItem = new ToDoListItem(this.nextListItemId++);
+        // Set newItem's index
         let currentList = this.currentList.items;
         let newItemIndex = currentList.length - 1;
         newItem.index = newItemIndex
@@ -187,17 +188,21 @@ export default class ToDoModel {
             redoButton.setAttribute("style", "background-color: transparent;");
     }
 
-    setAddItemButtonState() {
-        let addState;
+    setAddItemDeleteListButtonState() {
+        let addAndDeleteListState;
         let addButton = document.getElementById('add-item-button');
+        let deleteListButton = document.getElementById('delete-list-button');
         if (this.currentList != null)
-            addState = true;
+            addAndDeleteListState = true;
         else
-            addState = false;
-        if (addState != true)
+            addAndDeleteListState = false;
+        if (addAndDeleteListState != true) {
             addButton.setAttribute("style", "background-color: red;");
-        else
+            deleteListButton.setAttribute("style", "background-color: red;");
+        } else {
             addButton.setAttribute("style", "background-color: transparent;");
+            deleteListButton.setAttribute("style", "background-color: transparent;");   
+        }
     }
 
     /**
