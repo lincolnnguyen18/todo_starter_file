@@ -19,6 +19,19 @@ export default class ToDoView {
         listElement.setAttribute("id", newListId);
         listElement.setAttribute("class", "todo_button");
         listElement.appendChild(document.createTextNode(newList.name));
+        
+        // If currentList != null, get currentListId
+        let currentList = this.controller.model.currentList;
+        let currentListId;
+        if (currentList != null) {
+            currentListId = this.controller.model.currentList.id;
+        }
+        // If id of list being added to view == id of currentList then style it
+        let listElementId = newList.id;
+        if (currentListId == listElementId) {
+            listElement.setAttribute("style", "background-color: red;");
+        }
+
         listsElement.appendChild(listElement);
 
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
@@ -48,6 +61,10 @@ export default class ToDoView {
             let list = lists[i];
             this.appendNewListToView(list);
         }
+    }
+
+    refreshListsDefault() {
+        this.refreshLists(this.controller.model.toDoLists);
     }
 
     // LOADS THE list ARGUMENT'S ITEMS INTO THE VIEW

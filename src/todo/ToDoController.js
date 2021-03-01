@@ -28,12 +28,14 @@ export default class ToDoController {
         }
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();
-        }  
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
+        // Refresh lists each time a list is clicked
+        this.model.view.refreshListsDefault();
     }
 }
