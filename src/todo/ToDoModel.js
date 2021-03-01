@@ -293,6 +293,10 @@ export default class ToDoModel {
         if (this.tps.hasTransactionToUndo()) {
             this.tps.undoTransaction();
             console.log(this.tps.transactions);
+            console.log(this.tps.mostRecentTransaction);
+            // console.log(this.tps.transactions[0]);
+            // console.log(this.tps.transactions[0] instanceof AddNewItem_Transaction);
+            console.log(this.clearNonListTransactions());
         } else {
             console.log("no more undo!");
         }
@@ -305,8 +309,19 @@ export default class ToDoModel {
         if (this.tps.hasTransactionToRedo()) {
             this.tps.doTransaction();
             console.log(this.tps.transactions);
+            console.log(this.tps.mostRecentTransaction);
+            console.log(this.clearNonListTransactions());
         } else {
             console.log("no more redo!");
         }
-    } 
+    }
+
+    clearNonListTransactions() {
+        // this.tps.transactions = this.tps.transactions.filter(function (e) {
+        //     return e instanceof AddList_Transaction || e instanceof DeleteList_Transaction || e instanceof RenameList_Transaction
+        // });
+        return this.tps.transactions.filter(function (e) {
+            return e instanceof AddList_Transaction || e instanceof DeleteList_Transaction || e instanceof RenameList_Transaction
+        });
+    }
 }
