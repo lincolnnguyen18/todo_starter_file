@@ -24,27 +24,27 @@
             "name": "House Repairs",
             "items": [
                 {
-                    "description": "Repair Leaky Kitchen Sink",
+                    "description": "0",
                     "due_date": "2019-07-11",
                     "status": "complete"
                 },
                 {
-                    "description": "Fix Leak in Roof",
+                    "description": "1",
                     "due_date": "2019-10-15",
                     "status": "incomplete"
                 },
                 {
-                    "description": "Paint Interior",
+                    "description": "2",
                     "due_date": "2019-11-11",
                     "status": "incomplete"
                 },
                 {
-                    "description": "Plant Flowers",
+                    "description": "3",
                     "due_date": "2019-08-17",
                     "status": "complete"
                 },
                 {
-                    "description": "Repair Front Door",
+                    "description": "4",
                     "due_date": "2019-10-31",
                     "status": "incomplete"
                 }
