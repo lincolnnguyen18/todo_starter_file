@@ -79,10 +79,6 @@ export default class ToDoView {
                 itemsListDiv.appendChild(listItemElement);
             }
         }
-        let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
-        let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
-        moveItemUpButtons[0].classList.add('disabled');
-        moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
         // add rename event for itemNames
         let itemNames = document.querySelectorAll('#todo-list-items-div .task-col');
         itemNames.forEach((itemName) => {
@@ -93,7 +89,8 @@ export default class ToDoView {
                 textField.value = itemName.innerHTML;
                 textField.onblur = function() {
                     itemName.innerHTML = textField.value;
-                    model.currentList.items
+                    let itemInListToRename = model.getItemInCurrentListById(itemName.closest('.list-item-card').id.split('-')[3]);
+                    itemInListToRename.description = textField.value;
                 }
                 textField.addEventListener('keyup', ({ key }) => {
                     if (key === 'Enter') {
@@ -105,6 +102,10 @@ export default class ToDoView {
                 itemName.getElementsByTagName('input')[0].select();
             }
         });
+        let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
+        let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
+        moveItemUpButtons[0].classList.add('disabled');
+        moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
         model.setAddItemDeleteListCloseListButtonState();
     }
     // MISC.

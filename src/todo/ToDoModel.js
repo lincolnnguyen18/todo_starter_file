@@ -15,6 +15,10 @@ export default class ToDoModel {
     }
     // ITEM FUNCTIONS
     // **************************************************************
+    getItemInCurrentListById(id) {
+        let itemsIndex = this.currentList.items.filter(item => item.id == id)[0].index;
+        return this.currentList.items[itemsIndex]
+    }
     switchTwoItemsInCurrentList(item1, item2) {
         [item1.id, item2.id] = [item2.id, item1.id];
         [item1.description, item2.description] = [item2.description, item1.description];
