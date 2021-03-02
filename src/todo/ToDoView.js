@@ -52,6 +52,7 @@ export default class ToDoView {
     viewList(list) {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         let numberOfVisibleItems = this.controller.model.getVisibleItems().length;
+        let model = this.controller.model;
         this.clearItemsList();
         // put items of list into view
         for (let i = 0; i < list.items.length; i++) {
@@ -84,7 +85,6 @@ export default class ToDoView {
                 let listItemMoveUp = listItemControls[0];
                 let listItemMoveDown = listItemControls[1];
                 let listItemDelete = listItemControls[2];
-                let model = this.controller.model;
                 listItemDelete.onmouseup = function() {
                     // listItem example
                     // ToDoListItem {id: 2, description: "Make You Cry", dueDate: "2019-12-30", status: "incomplete", index: 2}
@@ -101,7 +101,23 @@ export default class ToDoView {
                 }
             }
         }
-        this.controller.model.setAddItemDeleteListCloseListButtonState();
+        // add rename event for itemNames
+        let itemNames = document.querySelectorAll('#todo-list-items-div .task-col');
+        itemNames.forEach((itemName) => {
+            itemName.onmouseup = function() {
+                if (itemName.getElementsByTagName('input')[0] != null)
+                    return;
+                let textField = document.createElement('input');
+                textField.value = itemName.innerHTML;
+                textField.onblur = function() {
+                    itemName.innerHTML = textField.value;
+                }
+                itemName.innerHTML = '';
+                itemName.appendChild(textField);
+                itemName.getElementsByTagName('input')[0].select();
+            }
+        });
+        model.setAddItemDeleteListCloseListButtonState();
     }
     // MISC.
     // **************************************************************

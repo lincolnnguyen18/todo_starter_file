@@ -8,7 +8,6 @@
 #todo-list-items-div input {
     background: transparent;
     border: 0;
-    /* border-bottom: 1px solid black; */
     outline: none;
     font-size: inherit;
     font-family: inherit;
@@ -16,7 +15,6 @@
     color: #fff;
     width: 97%;
     height: 97%;
-    /* outline-color: #ffc800; */
 }
 
 #todo-lists-list input {
