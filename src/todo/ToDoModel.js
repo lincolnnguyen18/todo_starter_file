@@ -5,6 +5,7 @@ import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import DeleteItem_Transaction from './transactions/DeleteItem_Transaction.js'
 import MoveItemUp_Transaction from './transactions/MoveItemUp_Transaction.js'
 import MoveItemDown_Transaction from './transactions/MoveItemDown_Transaction.js'
+import RenameItem_Transaction from './transactions/RenameItem_Transaction.js'
 export default class ToDoModel {
     constructor() {
         this.toDoLists = [];
@@ -70,6 +71,10 @@ export default class ToDoModel {
     }
     moveItemDownTransaction(itemToMove) {
         let transaction = new MoveItemDown_Transaction(this, itemToMove);
+        this.tps.addTransaction(transaction);
+    }
+    renameItemTransaction(itemToRename, newName) {
+        let transaction = new RenameItem_Transaction(this, itemToRename, newName);
         this.tps.addTransaction(transaction);
     }
     // LIST FUNCTIONS

@@ -90,7 +90,9 @@ export default class ToDoView {
                 textField.onblur = function() {
                     itemName.innerHTML = textField.value;
                     let itemInListToRename = model.getItemInCurrentListById(itemName.closest('.list-item-card').id.split('-')[3]);
-                    itemInListToRename.description = textField.value;
+                    // itemInListToRename.description = textField.value;
+                    model.renameItemTransaction(itemInListToRename, textField.value);
+                    model.setUndoRedoButtonStates();
                 }
                 textField.addEventListener('keyup', ({ key }) => {
                     if (key === 'Enter') {
