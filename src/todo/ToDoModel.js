@@ -14,11 +14,15 @@ export default class ToDoModel {
     }
     // ITEM FUNCTIONS
     // **************************************************************
+    switchTwoItemsInCurrentList(item1, item2) {
+        [item1.id, item2.id] = [item2.id, item1.id];
+        [item1.description, item2.description] = [item2.description, item1.description];
+        [item1.dueDate, item2.dueDate] = [item2.dueDate, item1.dueDate];
+        [item1.status, item2.status] = [item2.status, item1.status];
+    }
     removeDeletedItemsFromCurrentList() {
         if (this.currentList != null) {
-            this.currentList.items = this.currentList.items.filter(function (item) {
-                return item.visible == true;
-            });
+            this.currentList.items = this.getVisibleItems();
         }
     }
     resetItemIndices() {
@@ -61,6 +65,13 @@ export default class ToDoModel {
     }
     // LIST FUNCTIONS
     // **************************************************************
+    getVisibleItems() {
+        if (this.currentList == null)
+            return null;
+        return this.currentList.items.filter(function (item) {
+            return item.visible == true;
+        });
+    }
     moveCurrentListToIndexZeroOfToDoLists() {
         // Get index of currentList
         let currentListIndex = -1;
@@ -119,7 +130,7 @@ export default class ToDoModel {
         if (this.tps.hasTransactionToRedo()) {
             this.tps.doTransaction();
         }
-    }   
+    }
     setUndoRedoButtonStates() {
         let undoState = this.tps.hasTransactionToUndo();
         let redoState = this.tps.hasTransactionToRedo();

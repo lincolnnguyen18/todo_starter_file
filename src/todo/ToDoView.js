@@ -51,7 +51,9 @@ export default class ToDoView {
     }
     viewList(list) {
         let itemsListDiv = document.getElementById("todo-list-items-div");
+        let numberOfVisibleItems = this.controller.model.getVisibleItems().length;
         this.clearItemsList();
+        // put items of list into view
         for (let i = 0; i < list.items.length; i++) {
             let listItem = list.items[i];
             if (listItem.visible == true) {
@@ -69,6 +71,10 @@ export default class ToDoView {
                 itemsListDiv.innerHTML += listItemElement;
             }
         }
+        let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
+        let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
+        moveItemUpButtons[0].classList.add('disabled');
+        moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
         // set events for list item controls
         for (let i = 0; i < list.items.length; i++) {
             let listItem = list.items[i];
@@ -87,6 +93,7 @@ export default class ToDoView {
                 }
                 listItemMoveUp.onmouseup = function() {
                     model.moveItemUpTransaction(listItem);
+                    model.setUndoRedoButtonStates();
                 }
             }
         }
