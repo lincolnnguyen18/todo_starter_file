@@ -53,7 +53,7 @@ export default class ToDoView {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         let numberOfVisibleItems = this.controller.model.getVisibleItems().length;
         let model = this.controller.model;
-        let listItemTemplate = document.getElementById('listItemTemplate');
+        // let listItemTemplate = document.getElementById('listItemTemplate');
         this.clearItemsList();
         // put items of list into view
         for (let i = 0; i < list.items.length; i++) {
@@ -63,7 +63,45 @@ export default class ToDoView {
                 listItemElement.querySelector('#todo-list-item-0').id = `todo-list-item-${listItem.id}`;
                 listItemElement.querySelector('.task-col').innerHTML = listItem.description;
                 listItemElement.querySelector('.due-date-col').innerHTML = listItem.dueDate;
-                listItemElement.querySelector('.status-col').innerHTML = listItem.status;
+                listItemElement.querySelector('.status-col').querySelector('.dropbtn').innerHTML = listItem.status;
+                // open dropdown list
+                listItemElement.querySelector('.dropbtn').addEventListener('click', function(){
+                    event.stopPropagation();
+                    let dropdownContainer = this.parentElement;
+                    let dropDownToShow = dropdownContainer.querySelector('#myDropdown');
+                    dropDownToShow.classList.toggle('showDropdown');
+                    // this.blur();
+                    // unfocus button when dropdown is toggled closed
+                    if (!dropDownToShow.classList.contains('showDropdown')) {
+                        this.blur();
+                    }
+                });
+                // close dropdown list
+                listItemElement.querySelector('.dropbtn').addEventListener('focusout', function(event){
+                    let dropdownContainer = this.parentElement;
+                    let dropDownToShow = dropdownContainer.querySelector('#myDropdown');
+                    if (event.relatedTarget) {
+                        let clickedItem = event.relatedTarget;
+                        // if new target is the dropdown menu then don't close the dropdown
+                        if (clickedItem.parentElement.id == 'myDropdown')
+                            return;
+                        // if new target is another dropdown button then close the dropdown
+                        if (clickedItem.classList.contains('dropbtn'))
+                            dropDownToShow.classList.remove('showDropdown');
+                    // if new target is unrelated then close the dropdown
+                    } else {
+                        dropDownToShow.classList.remove('showDropdown');
+                    }
+                });
+                // update status
+                listItemElement.querySelectorAll('#myDropdown div')[0].onmouseup = function() {
+                    let statusId = this.closest('.list-item-card').id.split('-')[3];
+                    this.closest('#myDropdown').classList.remove('showDropdown');
+                }
+                listItemElement.querySelectorAll('#myDropdown div')[1].onmouseup = function() {
+                    let statusId = this.closest('.list-item-card').id.split('-')[3];
+                    this.closest('#myDropdown').classList.remove('showDropdown');
+                }
                 listItemElement.querySelectorAll('.list-item-control')[0].onmouseup = function() {
                     model.moveItemUpTransaction(listItem);
                     model.setUndoRedoButtonStates();
@@ -109,6 +147,20 @@ export default class ToDoView {
         moveItemUpButtons[0].classList.add('disabled');
         moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
         model.setAddItemDeleteListCloseListButtonState();
+        // // add selectStatus event for itemStatuses
+        // let itemStatuses = document.querySelectorAll('#todo-list-items-div .status-col');
+        // // let statusDropdownMenuTemplate = document.getElementById('statusDropdownMenuTemplate');
+        // itemStatuses.forEach((itemStatus) => {
+        //     itemStatus.onmouseup = function() {
+        //         // itemStatus.style.backgroundColor = "black";
+        //         // itemStatus.innerHTML = "";
+        //         // let statusDropDownMenu = statusDropdownMenuTemplate.content.cloneNode(true);
+        //         // itemStatus.appendChild(statusDropDownMenu);
+        //         let statusDropDownMenu = itemStatus.querySelector('#myDropdown');
+        //         this.classList.add('show');
+        //         model.view.viewCurrentList();
+        //     }
+        // });
     }
     // MISC.
     // **************************************************************
