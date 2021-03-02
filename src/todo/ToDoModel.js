@@ -3,6 +3,7 @@ import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import DeleteItem_Transaction from './transactions/DeleteItem_Transaction.js'
+import MoveItemUp_Transaction from './transactions/MoveItemUp_Transaction.js'
 export default class ToDoModel {
     constructor() {
         this.toDoLists = [];
@@ -50,8 +51,12 @@ export default class ToDoModel {
         let transaction = new AddNewItem_Transaction(this);
         this.tps.addTransaction(transaction);
     }
-    deleteItemTransction(itemToDelete) {
+    deleteItemTransaction(itemToDelete) {
         let transaction = new DeleteItem_Transaction(this, itemToDelete);
+        this.tps.addTransaction(transaction);
+    }
+    moveItemUpTransaction(itemToMove) {
+        let transaction = new MoveItemUp_Transaction(this, itemToMove);
         this.tps.addTransaction(transaction);
     }
     // LIST FUNCTIONS

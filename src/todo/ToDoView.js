@@ -82,8 +82,11 @@ export default class ToDoView {
                 listItemDelete.onmouseup = function() {
                     // listItem example
                     // ToDoListItem {id: 2, description: "Make You Cry", dueDate: "2019-12-30", status: "incomplete", index: 2}
-                    model.deleteItemTransction(listItem);
+                    model.deleteItemTransaction(listItem);
                     model.setUndoRedoButtonStates();
+                }
+                listItemMoveUp.onmouseup = function() {
+                    model.moveItemUpTransaction(listItem);
                 }
             }
         }
