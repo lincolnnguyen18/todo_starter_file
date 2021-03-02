@@ -95,6 +95,10 @@ export default class ToDoView {
                     model.moveItemUpTransaction(listItem);
                     model.setUndoRedoButtonStates();
                 }
+                listItemMoveDown.onmouseup = function() {
+                    model.moveItemDownTransaction(listItem);
+                    model.setUndoRedoButtonStates();
+                }
             }
         }
         this.controller.model.setAddItemDeleteListCloseListButtonState();
