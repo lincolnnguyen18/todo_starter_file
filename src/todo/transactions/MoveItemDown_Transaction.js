@@ -11,6 +11,9 @@ export default class MoveItemDown_Transaction extends jsTPS_Transaction {
         let itemMovedIndex = this.itemMoved.index;
         let itemMoved = currentList[itemMovedIndex];
         let itemBelowItemMoved = currentList[itemMovedIndex + 1];
+        while (itemBelowItemMoved.visible != true) {
+            itemBelowItemMoved = currentList[itemBelowItemMoved.index + 1];
+        }
         model.switchTwoItemsInCurrentList(itemMoved, itemBelowItemMoved);
         model.view.viewCurrentList();
     }
