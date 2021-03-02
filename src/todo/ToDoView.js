@@ -53,54 +53,36 @@ export default class ToDoView {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         let numberOfVisibleItems = this.controller.model.getVisibleItems().length;
         let model = this.controller.model;
+        let listItemTemplate = document.getElementById('listItemTemplate');
         this.clearItemsList();
         // put items of list into view
         for (let i = 0; i < list.items.length; i++) {
             let listItem = list.items[i];
             if (listItem.visible == true) {
-                let listItemElement = "<div id='todo-list-item-" + listItem.id + "' class='list-item-card'>"
-                                    + "<div class='task-col'>" + listItem.description + "</div>"
-                                    + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
-                                    + "<div class='status-col'>" + listItem.status + "</div>"
-                                    + "<div class='list-controls-col'>"
-                                    + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
-                                    + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
-                                    + " <div class='list-item-control material-icons'>close</div>"
-                                    + " <div class='list-item-control'></div>"
-                                    + " <div class='list-item-control'></div>"
-                                    + "</div>";
-                itemsListDiv.innerHTML += listItemElement;
+                let listItemElement = listItemTemplate.content.cloneNode(true);
+                listItemElement.querySelector('#todo-list-item-0').id = `todo-list-item-${listItem.id}`;
+                listItemElement.querySelector('.task-col').innerHTML = listItem.description;
+                listItemElement.querySelector('.due-date-col').innerHTML = listItem.dueDate;
+                listItemElement.querySelector('.status-col').innerHTML = listItem.status;
+                listItemElement.querySelectorAll('.list-item-control')[0].onmouseup = function() {
+                    model.moveItemUpTransaction(listItem);
+                    model.setUndoRedoButtonStates();
+                }
+                listItemElement.querySelectorAll('.list-item-control')[1].onmouseup = function() {
+                    model.moveItemDownTransaction(listItem);
+                    model.setUndoRedoButtonStates();
+                }
+                listItemElement.querySelectorAll('.list-item-control')[2].onmouseup = function() {
+                    model.deleteItemTransaction(listItem);
+                    model.setUndoRedoButtonStates();
+                }
+                itemsListDiv.appendChild(listItemElement);
             }
         }
         let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
         let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
         moveItemUpButtons[0].classList.add('disabled');
         moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
-        // set events for list item controls
-        for (let i = 0; i < list.items.length; i++) {
-            let listItem = list.items[i];
-            if (listItem.visible == true) {
-                let listItemHTML = document.querySelector(`#todo-list-item-${listItem.id}`);
-                let listItemControls = listItemHTML.getElementsByClassName('list-item-control');
-                let listItemMoveUp = listItemControls[0];
-                let listItemMoveDown = listItemControls[1];
-                let listItemDelete = listItemControls[2];
-                listItemDelete.onmouseup = function() {
-                    // listItem example
-                    // ToDoListItem {id: 2, description: "Make You Cry", dueDate: "2019-12-30", status: "incomplete", index: 2}
-                    model.deleteItemTransaction(listItem);
-                    model.setUndoRedoButtonStates();
-                }
-                listItemMoveUp.onmouseup = function() {
-                    model.moveItemUpTransaction(listItem);
-                    model.setUndoRedoButtonStates();
-                }
-                listItemMoveDown.onmouseup = function() {
-                    model.moveItemDownTransaction(listItem);
-                    model.setUndoRedoButtonStates();
-                }
-            }
-        }
         // add rename event for itemNames
         let itemNames = document.querySelectorAll('#todo-list-items-div .task-col');
         itemNames.forEach((itemName) => {
@@ -111,7 +93,13 @@ export default class ToDoView {
                 textField.value = itemName.innerHTML;
                 textField.onblur = function() {
                     itemName.innerHTML = textField.value;
+                    model.currentList.items
                 }
+                textField.addEventListener('keyup', ({ key }) => {
+                    if (key === 'Enter') {
+                        let textField = itemName.getElementsByTagName('input')[0].blur();
+                    }
+                })
                 itemName.innerHTML = '';
                 itemName.appendChild(textField);
                 itemName.getElementsByTagName('input')[0].select();
