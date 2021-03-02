@@ -1,4 +1,3 @@
-'use strict'
 export default class ToDoListItem {
     constructor(initId) {
         this.id = initId;

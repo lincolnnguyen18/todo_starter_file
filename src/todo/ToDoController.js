@@ -1,4 +1,3 @@
-'use strict'
 export default class ToDoController {    
     constructor() {}
     setModel(initModel) {
@@ -38,9 +37,14 @@ export default class ToDoController {
         if (appModel.currentList != null && clickedListId != appModel.currentList.id) {
             currentListId = appModel.currentList.id;
             appModel.tps.clearAllTransactions();
+            appModel.removeDeletedItemsFromCurrentList();
+            appModel.resetItemIndices();
         }
         appModel.loadList(listId);
         appModel.view.refreshListsDefault();
         appModel.setUndoRedoButtonStates();
+        // debug here
+        let currentList = appModel.currentList;
+        let transactionStack = appModel.tps.transactions;
     }
 }

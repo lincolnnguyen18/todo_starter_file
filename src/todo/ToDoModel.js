@@ -1,8 +1,8 @@
-'use strict'
 import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import DeleteItem_Transaction from './transactions/DeleteItem_Transaction.js'
 export default class ToDoModel {
     constructor() {
         this.toDoLists = [];
@@ -13,6 +13,18 @@ export default class ToDoModel {
     }
     // ITEM FUNCTIONS
     // **************************************************************
+    removeDeletedItemsFromCurrentList() {
+        if (this.currentList != null) {
+            this.currentList.items = this.currentList.items.filter(function (item) {
+                return item.visible == true;
+            });
+        }
+    }
+    resetItemIndices() {
+        for (let i = 0; i < this.currentList.items.length; i++) {
+            this.currentList.items[i].index = i;
+        }
+    }
     addNewItemToList(list, initDescription, initDueDate, initStatus) {
         let newItem = new ToDoListItem(this.nextListItemId++);
         newItem.description = initDescription;
@@ -36,6 +48,10 @@ export default class ToDoModel {
     }
     addNewItemTransaction() {
         let transaction = new AddNewItem_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+    deleteItemTransction(itemToDelete) {
+        let transaction = new DeleteItem_Transaction(this, itemToDelete);
         this.tps.addTransaction(transaction);
     }
     // LIST FUNCTIONS
@@ -74,8 +90,6 @@ export default class ToDoModel {
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
-        // debug state of lists here
-        let lists = this.toDoLists;
     }
     removeCurrentList() {
         let indexOfList = -1;

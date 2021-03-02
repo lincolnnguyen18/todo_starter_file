@@ -1,4 +1,3 @@
-'use strict'
 import ToDoModel from './ToDoModel.js'
 import ToDoView from './ToDoView.js'
 import ToDoController from './ToDoController.js'

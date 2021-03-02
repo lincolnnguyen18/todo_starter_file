@@ -1,4 +1,3 @@
-'use strict'
 export default class ToDoView {
     constructor() {}
     // SIDEBAR LISTS FUNCTIONS
@@ -47,6 +46,9 @@ export default class ToDoView {
             parent.removeChild(parent.firstChild);
         }
     }
+    viewCurrentList() {
+        this.viewList(this.controller.model.currentList);
+    }
     viewList(list) {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         this.clearItemsList();
@@ -65,6 +67,24 @@ export default class ToDoView {
                                     + " <div class='list-item-control'></div>"
                                     + "</div>";
                 itemsListDiv.innerHTML += listItemElement;
+            }
+        }
+        // set events for list item controls
+        for (let i = 0; i < list.items.length; i++) {
+            let listItem = list.items[i];
+            if (listItem.visible == true) {
+                let listItemHTML = document.querySelector(`#todo-list-item-${listItem.id}`);
+                let listItemControls = listItemHTML.getElementsByClassName('list-item-control');
+                let listItemMoveUp = listItemControls[0];
+                let listItemMoveDown = listItemControls[1];
+                let listItemDelete = listItemControls[2];
+                let model = this.controller.model;
+                listItemDelete.onmouseup = function() {
+                    // listItem example
+                    // ToDoListItem {id: 2, description: "Make You Cry", dueDate: "2019-12-30", status: "incomplete", index: 2}
+                    model.deleteItemTransction(listItem);
+                    model.setUndoRedoButtonStates();
+                }
             }
         }
         this.controller.model.setAddItemDeleteListCloseListButtonState();

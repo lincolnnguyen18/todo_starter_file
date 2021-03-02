@@ -1,4 +1,3 @@
-'use strict'
 import { jsTPS_Transaction } from "../../common/jsTPS.js"
 export default class AddNewItem_Transaction extends jsTPS_Transaction {
     constructor(initModel) {
@@ -15,12 +14,12 @@ export default class AddNewItem_Transaction extends jsTPS_Transaction {
             let itemInList = model.currentList.items[this.itemAdded.index];
             itemInList.visible = true;
         }
-        model.view.viewList(model.currentList);
+        model.view.viewCurrentList();
     }
     undoTransaction() {
         let model = this.model;
         let itemInList = model.currentList.items[this.itemAdded.index];
         itemInList.visible = false;
-        model.view.viewList(model.currentList);
+        model.view.viewCurrentList();
     }
 }
