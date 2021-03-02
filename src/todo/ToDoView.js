@@ -1,106 +1,76 @@
 'use strict'
-
-/**
- * ToDoView
- * 
- * This class generates all HTML content for the UI.
- */
 export default class ToDoView {
     constructor() {}
-
-    // ADDS A LIST TO SELECT FROM IN THE LEFT SIDEBAR
+    // SIDEBAR LISTS FUNCTIONS
+    // **************************************************************
     appendNewListToView(newList) {
-        // GET THE UI CONTROL WE WILL APPEND IT TO
         let listsElement = document.getElementById("todo-lists-list");
-
-        // MAKE AND ADD THE NODE
         let newListId = "todo-list-" + newList.id;
         let listElement = document.createElement("div");
         listElement.setAttribute("id", newListId);
         listElement.setAttribute("class", "todo_button");
         listElement.appendChild(document.createTextNode(newList.name));
-        
-        // If currentList != null, get currentListId
+        // if currentList != null, get currentListId
         let currentList = this.controller.model.currentList;
         let currentListId;
         if (currentList != null) {
             currentListId = this.controller.model.currentList.id;
         }
-        // If id of list being added to view == id of currentList then style it
+        // if currentListId == id of currentList then style it
         let listElementId = newList.id;
         if (currentListId == listElementId) {
             listElement.setAttribute("style", "background-color: red;");
         }
-
         listsElement.appendChild(listElement);
-
-        // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
+        // load list when clicked
         let thisController = this.controller;
         listElement.onmouseup = function() {
             thisController.handleLoadList(newList.id);
         }
     }
-
-    // REMOVES ALL THE LISTS FROM THE LEFT SIDEBAR
-    clearItemsList() {
-        let itemsListDiv = document.getElementById("todo-list-items-div");
-        // BUT FIRST WE MUST CLEAR THE WORKSPACE OF ALL CARDS BUT THE FIRST, WHICH IS THE ITEMS TABLE HEADER
-        let parent = itemsListDiv;
-        while (parent.firstChild) {
-            parent.removeChild(parent.firstChild);
-        }
-    }
-
-    // REFRESHES ALL THE LISTS IN THE LEFT SIDEBAR
-    refreshLists(lists) {
-        // GET THE UI CONTROL WE WILL APPEND IT TO
+    refreshListsDefault() {
+        this.controller.model.moveCurrentListToIndexZeroOfToDoLists();
+        let lists = this.controller.model.toDoLists;
         let listsElement = document.getElementById("todo-lists-list");
         listsElement.innerHTML = "";
-
         for (let i = 0; i < lists.length; i++) {
             let list = lists[i];
             this.appendNewListToView(list);
         }
     }
-
-    refreshListsDefault() {
-        // Move currentList to index 0 of toDoLists
-        let model = this.controller.model;
-        model.moveCurrentListToIndexZeroOfToDoLists();
-        // Refresh list of lists
-        this.refreshLists(this.controller.model.toDoLists);
-    }
-
-    // LOADS THE list ARGUMENT'S ITEMS INTO THE VIEW
-    viewList(list) {
-        // WE'LL BE ADDING THE LIST ITEMS TO OUR WORKSPACE
+    // LIST ITEM FUNCTIONS
+    // **************************************************************
+    clearItemsList() {
         let itemsListDiv = document.getElementById("todo-list-items-div");
-
-        // GET RID OF ALL THE ITEMS
-        this.clearItemsList();
-
-        for (let i = 0; i < list.items.length; i++) {
-            // NOW BUILD ALL THE LIST ITEMS
-            let listItem = list.items[i];
-            let listItemElement = "<div id='todo-list-item-" + listItem.id + "' class='list-item-card'>"
-                                + "<div class='task-col'>" + listItem.description + "</div>"
-                                + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
-                                + "<div class='status-col'>" + listItem.status + "</div>"
-                                + "<div class='list-controls-col'>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
-                                + " <div class='list-item-control material-icons'>close</div>"
-                                + " <div class='list-item-control'></div>"
-                                + " <div class='list-item-control'></div>"
-                                + "</div>";
-            itemsListDiv.innerHTML += listItemElement;
+        let parent = itemsListDiv;
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
         }
-
-        // Set add button state
+    }
+    viewList(list) {
+        let itemsListDiv = document.getElementById("todo-list-items-div");
+        this.clearItemsList();
+        for (let i = 0; i < list.items.length; i++) {
+            let listItem = list.items[i];
+            if (listItem.visible == true) {
+                let listItemElement = "<div id='todo-list-item-" + listItem.id + "' class='list-item-card'>"
+                                    + "<div class='task-col'>" + listItem.description + "</div>"
+                                    + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
+                                    + "<div class='status-col'>" + listItem.status + "</div>"
+                                    + "<div class='list-controls-col'>"
+                                    + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
+                                    + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
+                                    + " <div class='list-item-control material-icons'>close</div>"
+                                    + " <div class='list-item-control'></div>"
+                                    + " <div class='list-item-control'></div>"
+                                    + "</div>";
+                itemsListDiv.innerHTML += listItemElement;
+            }
+        }
         this.controller.model.setAddItemDeleteListCloseListButtonState();
     }
-
-    // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
+    // MISC.
+    // **************************************************************
     setController(initController) {
         this.controller = initController;
     }

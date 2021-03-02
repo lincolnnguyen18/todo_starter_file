@@ -1,38 +1,45 @@
 'use strict'
-
 import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
-
-/**
- * ToDoModel
- * 
- * This class manages all the app data.
- */
 export default class ToDoModel {
     constructor() {
-        // THIS WILL STORE ALL OF OUR LISTS
         this.toDoLists = [];
-
-        // THIS IS THE LIST CURRENTLY BEING EDITED
         this.currentList = null;
-
-        // THIS WILL MANAGE OUR TRANSACTIONS
         this.tps = new jsTPS();
-
-        // WE'LL USE THIS TO ASSIGN ID NUMBERS TO EVERY LIST
         this.nextListId = 0;
-
-        // WE'LL USE THIS TO ASSIGN ID NUMBERS TO EVERY LIST ITEM
         this.nextListItemId = 0;
     }
-
-    clearTransactionStack() {
-        let transactionStack = this.tps.transactions;
-        this.tps.clearAllTransactions();
+    // ITEM FUNCTIONS
+    // **************************************************************
+    addNewItemToList(list, initDescription, initDueDate, initStatus) {
+        let newItem = new ToDoListItem(this.nextListItemId++);
+        newItem.description = initDescription;
+        newItem.dueDate = initDueDate;
+        newItem.status = initStatus;
+        newItem.index = list.items.length;
+        newItem.visible = true;
+        list.items.push(newItem);
     }
-
+    getNewItemIndexForCurrentList() {
+        let currentList = this.currentList.items;
+        let newItemIndex = currentList.length;
+        return newItemIndex;
+    }
+    // add new default item to current list and returns it
+    addNewItem() {
+        let newItem = new ToDoListItem(this.nextListItemId++);
+        newItem.index = this.getNewItemIndexForCurrentList();
+        this.currentList.items.push(newItem);
+        return newItem;
+    }
+    addNewItemTransaction() {
+        let transaction = new AddNewItem_Transaction(this);
+        this.tps.addTransaction(transaction);
+    }
+    // LIST FUNCTIONS
+    // **************************************************************
     moveCurrentListToIndexZeroOfToDoLists() {
         // Get index of currentList
         let currentListIndex = -1;
@@ -47,109 +54,15 @@ export default class ToDoModel {
             oldArray.unshift(currentList);
         }
     }
-
-    /**
-     * addItemToCurrentList
-     * 
-     * This function adds the itemToAdd argument to the current list being edited.
-     * 
-     * @param {*} itemToAdd A instantiated item to add to the list.
-     */
-    addItemToCurrentList(itemToAdd) {
-        this.currentList.push(itemToAdd);
-    }
-
-    // /**
-    //  * addNewItemToCurrentList
-    //  * 
-    //  * This function adds a brand new default item to the current list.
-    //  */
-    // addNewItemToCurrentList() {
-    //     let newItem = new ToDoListItem(this.nextListItemId++);
-    //     this.addItemToList(this.currentList, newItem);
-    //     return newItem;
-    // }
-
-    /**
-     * addItemToList
-     * 
-     * Function for adding a new item to the list argument using the provided data arguments.
-     */
-    addNewItemToList(list, initDescription, initDueDate, initStatus) {
-        let newItem = new ToDoListItem(this.nextListItemId++);
-        newItem.setDescription(initDescription);
-        newItem.setDueDate(initDueDate);
-        newItem.setStatus(initStatus);
-
-        newItem.index = list.items.length;
-
-        list.addItem(newItem);
-        if (this.currentList) {
-            this.view.refreshList(list);
-        }
-    }
-
-    /**
-     * addNewItemTransaction
-     * 
-     * Creates a new transaction for adding an item and adds it to the transaction stack.
-     */
-    addNewItemTransaction() {
-        let transaction = new AddNewItem_Transaction(this);
-        this.tps.addTransaction(transaction);
-    }
-
-    /**
-     * addNewList
-     * 
-     * This function makes a new list and adds it to the application. The list will
-     * have initName as its name.
-     * 
-     * @param {*} initName The name of this to add.
-     */
     addNewList(initName) {
         let newList = new ToDoList(this.nextListId++);
         if (initName)
-            newList.setName(initName);
+            newList.name = initName;
         this.toDoLists.push(newList);
         this.view.appendNewListToView(newList);
         return newList;
     }
-
-    getNewItemIndexForCurrentList() {
-        let currentList = this.currentList.items;
-        let newItemIndex = currentList.length;
-        return newItemIndex;
-    }
-
-    /**
-     * Adds a brand new default item to the current list's items list and refreshes the view.
-     */
-    addNewItem() {
-        let newItem = new ToDoListItem(this.nextListItemId++);
-        // Set newItem's index
-        newItem.index = this.getNewItemIndexForCurrentList();
-        this.currentList.items.push(newItem);
-        // Refresh view
-        this.view.viewList(this.currentList);
-        return newItem;
-    }
-
-    // /**
-    //  * Makes a new list item with the provided data and adds it to the list.
-    //  */
-    // loadItemIntoList(list, description, due_date, assigned_to, completed) {
-    //     let newItem = new ToDoListItem();
-    //     newItem.setDescription(description);
-    //     newItem.setDueDate(due_date);
-    //     newItem.setAssignedTo(assigned_to);
-    //     newItem.setCompleted(completed);
-    //     this.addItemToList(list, newItem);
-    // }
-
-    /**
-     * Load the items for the listId list into the UI.
-     */
+    // load list with listId in view
     loadList(listId) {
         let listIndex = -1;
         for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
@@ -161,44 +74,47 @@ export default class ToDoModel {
             this.currentList = listToLoad;
             this.view.viewList(this.currentList);
         }
-        // for debugging lists state
+        // debug state of lists here
         let lists = this.toDoLists;
     }
-
-    /**
-     * Redo the current transaction if there is one.
-     */
+    removeCurrentList() {
+        let indexOfList = -1;
+        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0) && this.currentList != null; i++) {
+            if (this.toDoLists[i].id === this.currentList.id) {
+                indexOfList = i;
+            }
+        }
+        this.toDoLists.splice(indexOfList, 1);
+        this.currentList = null;
+        this.view.clearItemsList();
+        this.view.refreshListsDefault();
+    }
+    // UNDO REDO AND MISC.
+    // **************************************************************
+    undo() {
+        if (this.tps.hasTransactionToUndo()) {
+            this.tps.undoTransaction();
+        }
+    }
     redo() {
         if (this.tps.hasTransactionToRedo()) {
             this.tps.doTransaction();
         }
     }   
-
-    /**
-     * Remove the itemToRemove from the current list and refresh.
-     */
-    removeItem(itemToRemove) {
-        this.currentList.removeItem(itemToRemove);
-        this.view.viewList(this.currentList);
-    }
-
     setUndoRedoButtonStates() {
         let undoState = this.tps.hasTransactionToUndo();
         let redoState = this.tps.hasTransactionToRedo();
         let undoButton = document.getElementById('undo-button');
         let redoButton = document.getElementById('redo-button');
         if (undoState != true)
-            // undoButton.classList.add('disabled');
             undoButton.classList.add('disabled');
         else
-            // undoButton.classList.remove('disabled');
             undoButton.classList.remove('disabled');
         if (redoState != true)
             redoButton.classList.add('disabled');
         else
             redoButton.classList.remove('disabled');
     }
-
     setAddItemDeleteListCloseListButtonState() {
         let addAndDeleteListState;
         let addButton = document.getElementById('add-item-button');
@@ -218,34 +134,7 @@ export default class ToDoModel {
             closeListButton.classList.remove('disabled');
         }
     }
-
-    /**
-     * Finds and then removes the current list.
-     */
-    removeCurrentList() {
-        let indexOfList = -1;
-        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0) && this.currentList != null; i++) {
-            if (this.toDoLists[i].id === this.currentList.id) {
-                indexOfList = i;
-            }
-        }
-        this.toDoLists.splice(indexOfList, 1);
-        this.currentList = null;
-        this.view.clearItemsList();
-        this.view.refreshListsDefault();
-    }
-
-    // WE NEED THE VIEW TO UPDATE WHEN DATA CHANGES.
     setView(initView) {
         this.view = initView;
     }
-
-    /**
-     * Undo the most recently done transaction if there is one.
-     */
-    undo() {
-        if (this.tps.hasTransactionToUndo()) {
-            this.tps.undoTransaction();
-        }
-    } 
 }

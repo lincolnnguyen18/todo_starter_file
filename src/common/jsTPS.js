@@ -112,8 +112,6 @@ export default class jsTPS {
      * there are transactions on the stack that can be redone.
      */
     hasTransactionToRedo() {
-        // for debugging redo state
-        let transactionStack = this.transactions;
         let mostRecentTransaction = this.mostRecentTransaction;
         let numTransactions = this.numTransactions;
         return (this.mostRecentTransaction+1) < this.numTransactions;
@@ -126,8 +124,6 @@ export default class jsTPS {
      * there are transactions on the stack that can be undone.
      */
     hasTransactionToUndo() {
-        // for debugging undo state
-        let transactionStack = this.transactions;
         let mostRecentTransaction = this.mostRecentTransaction;
         let numTransactions = this.numTransactions;
         return this.mostRecentTransaction >= 0;
