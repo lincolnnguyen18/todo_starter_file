@@ -284,7 +284,7 @@ body {
     background: #353a44;
     box-shadow: 3px 3px 3px #636363;
     display: grid;
-    grid-template-columns: 1fr 6.7fr;
+    grid-template-columns: minmax(230px, auto) 6.7fr;
     grid-template-rows: 1fr 13.1fr;
     padding: 0;
 }
@@ -294,26 +294,30 @@ body {
     border-bottom: 2px dotted;
     color: var(--light-gray);
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
     justify-content: space-between;
     margin-left: 12px;
     margin-right: 12px;
+    padding-bottom: 11px;
 }
 
 .left-sidebar-controls {
     display: flex;
     justify-content: space-between;
-    width: 65px;
-    margin-right: 35px;
+    /*width: 65px;
+    margin-right: 35px;*/
     height: 100%;
+    align-items: flex-end;
 }
 
 .left-sidebar-controls span {
-    margin-top: 20px;
-    padding-top: 3px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    /* margin-top: 20px; */
+    /* padding-top: 3px; */
+    /* margin-bottom: 10px; */
+    /* padding-left: 5px; */
+    /* padding-right: 5px; */
+    padding: 3px;
 }
 
 .left-sidebar-controls span:active {
@@ -348,14 +352,14 @@ body {
 }
 
 .left-sidebar-controls #add-list-button {
-    margin-right: 3px;
+    margin-right: 7px;
 }
 
 .left-sidebar-header-text {
     font-size: 19px;
     font-weight: bold;
-    margin-left: 2px;
-    padding-bottom: 11px;
+    /*margin-left: 2px;
+    padding-bottom: 11px;*/
 }
 
 #todo-lists-list {
