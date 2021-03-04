@@ -1,0 +1,54 @@
+/* OUTER ELEMENTS */
+/* ************************************************************** */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+body {
+    font-family: Consolas, Inconsolata, monospace;
+    color: #e9edf0;
+}
+div#grid-container {
+    background-color: #d9d6cc;
+}
+div {
+    user-select: none;
+}
+/* NAVBAR */
+/* ************************************************************** */
+div#navbar {
+    background: #40454e;
+    font-weight: bold;
+    color: #ffc800;
+    padding: 10px;
+}
+/* SIDEBAR */
+/* ************************************************************** */
+div#left-sidebar {
+    background: #353a44;
+}
+div#left-sidebar-header {
+    border-bottom: 2px dotted #e9edf0;
+}
+div#todo-lists-list div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* WORKSPACE */
+/* ************************************************************** */
+div#workspace {
+    background: #40454e;
+}
+/* LIST VIEW HEADER */
+/* ************************************************************** */
+#todo-list-header-card {
+    border-bottom: 2px dotted #e9edf0;
+}
+/* LIST VIEW ITEMS */
+/* ************************************************************** */
+div#todo-list-items-div .task-col {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+div#todo-list-items-div .list-item-card {
+    border-bottom: 1px solid #e9edf0;
+}

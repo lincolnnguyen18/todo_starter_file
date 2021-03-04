@@ -6,15 +6,21 @@ export default class DeleteItem_Transaction extends jsTPS_Transaction {
         this.itemDeleted = itemToDelete;
     }
     doTransaction() {
-        let currentList = this.model.currentList.items;
+        let model = this.model;
+        let itemAboveDeletedItem = model.getVisibleItemAboveItem(this.itemDeleted);
+        let currentList = model.currentList.items;
         let itemDeletedIndex = this.itemDeleted.index;
         currentList[itemDeletedIndex].visible = false;
-        this.model.view.viewCurrentList();
+        model.view.viewCurrentList();
+        if (itemAboveDeletedItem != null)
+            model.view.scrollItemIntoView(itemAboveDeletedItem);
     }
     undoTransaction() {
-        let currentList = this.model.currentList.items;
+        let model = this.model;
+        let currentList = model.currentList.items;
         let itemDeletedIndex = this.itemDeleted.index;
         currentList[itemDeletedIndex].visible = true;
-        this.model.view.viewCurrentList();
+        model.view.viewCurrentList();
+        model.view.scrollItemIntoView(this.itemDeleted);
     }
 }

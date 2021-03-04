@@ -16,6 +16,15 @@ export default class ToDoModel {
     }
     // ITEM FUNCTIONS
     // **************************************************************
+    getVisibleItemAboveItem(target) {
+        let visibleItems = this.getVisibleItems();
+        let indexOfTarget = visibleItems.findIndex(item => item.id === target.id);
+        return visibleItems[indexOfTarget - 1];
+    }
+    getLastItemInVisibleList() {
+        let visibleItems = this.getVisibleItems();
+        return visibleItems[visibleItems.length - 1];
+    }
     getItemInCurrentListById(id) {
         let itemsIndex = this.currentList.items.filter(item => item.id == id)[0].index;
         return this.currentList.items[itemsIndex]

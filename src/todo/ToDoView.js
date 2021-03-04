@@ -39,6 +39,9 @@ export default class ToDoView {
     }
     // LIST ITEM FUNCTIONS
     // **************************************************************
+    scrollItemIntoView(item) {
+        document.getElementById(`todo-list-item-${item.id}`).scrollIntoViewIfNeeded();
+    }
     clearItemsList() {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         let parent = itemsListDiv;
@@ -144,8 +147,12 @@ export default class ToDoView {
         });
         let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
         let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
-        moveItemUpButtons[0].classList.add('disabled');
-        moveItemDownButtons[moveItemUpButtons.length - 1].classList.add('disabled');
+        let firstMoveItemUpButtons = moveItemUpButtons[0];
+        let lastMoveItemDownButton = moveItemDownButtons[moveItemUpButtons.length - 1];
+        if (firstMoveItemUpButtons != null)
+            firstMoveItemUpButtons.classList.add('disabled');
+        if (lastMoveItemDownButton != null)
+            lastMoveItemDownButton.classList.add('disabled');
         model.setAddItemDeleteListCloseListButtonState();
         // // add selectStatus event for itemStatuses
         // let itemStatuses = document.querySelectorAll('#todo-list-items-div .status-col');

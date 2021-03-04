@@ -16,8 +16,10 @@ export default class MoveItemDown_Transaction extends jsTPS_Transaction {
         }
         model.switchTwoItemsInCurrentList(itemMoved, itemBelowItemMoved);
         model.view.viewCurrentList();
+        this.model.view.scrollItemIntoView(this.itemMoved);
     }
     undoTransaction() {
         this.doTransaction();
+        this.model.view.scrollItemIntoView(this.itemMoved);
     }
 }
