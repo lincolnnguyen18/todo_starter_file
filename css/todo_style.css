@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 body {
     font-family: Consolas, Inconsolata, monospace;
-    font-size: 12px;
     color: #e9edf0;
     -webkit-text-size-adjust: 100%;
 }
@@ -39,7 +38,6 @@ div#left-sidebar-header::after {
 }
 span.left-sidebar-header-text {
     font-weight: bold;
-    font-size: 12px;
 }
 #add-list-button {
     color: #ffc800;
@@ -49,11 +47,6 @@ div#todo-lists-list div {
     text-overflow: ellipsis;
     overflow: hidden;
     padding: 0 5px 0;
-}
-@media (min-width: 1000px) {
-    span.left-sidebar-header-text {
-        font-size: 19px;
-    }
 }
 /* WORKSPACE */
 /* ************************************************************** */

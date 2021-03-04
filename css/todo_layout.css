@@ -8,6 +8,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+    font-size: 12px;
 }
 .material-icons {
     font-size: 16px;
@@ -57,6 +58,7 @@ div#left-sidebar-header {
 span.left-sidebar-header-text {
     text-align: center;
     align-self: center;
+    font-size: 12px;
 }
 span.left-sidebar-controls {
     display: grid;
@@ -78,6 +80,9 @@ div#todo-lists-list div {
     div#left-sidebar {
         margin: 10px 0 10px 10px;
         grid-template-rows: 60px 1fr;
+    }
+    span.left-sidebar-header-text {
+        font-size: 19px;
     }
     span.left-sidebar-controls {
         height: 24px;
@@ -117,28 +122,50 @@ div#workspace {
 div#modal_container {
     display: none;
 }
-/* LIST VIEW HEADER */
-/* ************************************************************** */
-#todo-list-header-card {
-    position: relative;
-}
-#todo-list-header-card .list-controls-col {
-    height: 24px;
-}
-div#todo-list-header-card div {
-    align-self: self-end;
-}
-.list-controls-col div {
-    text-align: center;
-}
 @media (min-width: 1000px) {
     div#workspace {
         margin: 10px 10px 10px 0;
         grid-template-rows: 60px 1fr;
     }
-    .list-controls-col {
+}
+/* LIST VIEW HEADER */
+/* ************************************************************** */
+#todo-list-header-card {
+    position: relative;
+    padding: 0 1.5% 12px;
+    font-weight: bold;
+    padding-right: 0;
+}
+#todo-list-header-card .list-controls-col {
+    height: 16px;
+}
+div#todo-list-header-card div {
+    align-self: self-end;
+}
+.list-controls-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+div#todo-list-header-card div:empty {
+    display: none;
+}
+.list-controls-col div {
+    text-align: center;
+}
+@media (min-width: 1000px) {
+    div#todo-list-header-card div:empty {
         display: grid;
+    }
+    #todo-list-header-card .list-controls-col {
+        height: 24px;
+    }
+    .list-controls-col {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+@media (min-width: 1550px) {
+    #todo-list-header-card {
+        font-size: 19px;
     }
 }
 /* LIST VIEW ITEMS */
