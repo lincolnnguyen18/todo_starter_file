@@ -55,6 +55,7 @@ div#left-sidebar {
 div#left-sidebar-header {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    position: relative;
 }
 span.left-sidebar-header-text {
     text-align: center;
@@ -99,7 +100,6 @@ div#todo-lists-list div {
     }
     div#left-sidebar-header {
         display: block;
-        position: relative;
     }
     .left-sidebar-header-text {
         position: absolute;
@@ -124,6 +124,9 @@ div#modal_container {
 }
 /* LIST VIEW HEADER */
 /* ************************************************************** */
+#todo-list-header-card {
+    position: relative;
+}
 #todo-list-header-card .list-controls-col {
     height: 24px;
 }

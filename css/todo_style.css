@@ -24,8 +24,16 @@ div#navbar {
 div#left-sidebar {
     background: #353a44;
 }
-div#left-sidebar-header {
-    border-bottom: 2px dotted #e9edf0;
+div#left-sidebar-header::after {
+    content: "";
+    width: 90%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px dotted white;
 }
 div#todo-lists-list div {
     white-space: nowrap;
@@ -39,8 +47,16 @@ div#workspace {
 }
 /* LIST VIEW HEADER */
 /* ************************************************************** */
-#todo-list-header-card {
-    border-bottom: 2px dotted #e9edf0;
+#todo-list-header-card::after {
+    content: "";
+    width: 97%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px dotted white;
 }
 /* LIST VIEW ITEMS */
 /* ************************************************************** */
