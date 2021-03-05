@@ -24,10 +24,10 @@ List Editing
 - [X] Undo/redo for deleting an item
 
 Foolproof Design  
-- [ ] Add list button grayed out when not usable
-- [ ] Undo/redo buttons grayed out when not usable
-- [ ] List controls grayed out when not usable
-- [ ] Move item up/down grayed out when not usable
+- [X] Add list button grayed out when not usable
+- [X] Undo/redo buttons grayed out when not usable
+- [X] List controls grayed out when not usable
+- [X] Move item up/down grayed out when not usable
 
 Layout and Style  
 - [X] Current list highlighted
