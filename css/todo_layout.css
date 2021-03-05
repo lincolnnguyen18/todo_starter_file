@@ -198,11 +198,12 @@ div#todo-list-items-div .list-item-card {
     position: relative;
 }
 div#todo-list-items-div .list-item-card div {
-    height: inherit;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
     padding-right: 1%;
+}
+.task-col, .due-date-col {
+    overflow: hidden;
 }
 div#todo-list-items-div .list-item-card .list-controls-col {
     padding-right: 0;
@@ -267,7 +268,23 @@ div#todo-lists-list .todo_button:not(.disabled):active {
 .list-controls-col .todo_button:not(.disabled):active {
     filter: brightness(70%);
 }
-/* List view items */
+/* List view buttons */
+@media (hover: hover) and (pointer: fine) {
+    .list-controls-col .list-item-control:not(.disabled):hover {
+        cursor: pointer;
+        text-shadow: 2px 2px 20px rgba(238, 238, 238, 1);
+        filter: brightness(150%);
+        transition: filter 0.05s ease-in-out;
+    }
+    #todo-list-items-div .list-item-card:hover {
+        background: #4d5059;
+        transition: background 0.1s ease-in-out;
+    }
+}
+.list-controls-col .list-item-control:not(.disabled):active {
+    filter: brightness(70%);
+}
+/* Renaming item description */
 .task-col input {
     height: auto;
     width: 85%;
@@ -283,18 +300,56 @@ div#todo-list-items-div .task-col:hover {
         font-size: 16px;
     }
 }
-@media (hover: hover) and (pointer: fine) {
-    .list-controls-col .list-item-control:not(.disabled):hover {
-        cursor: pointer;
-        text-shadow: 2px 2px 20px rgba(238, 238, 238, 1);
-        filter: brightness(150%);
-        transition: filter 0.05s ease-in-out;
-    }
-    #todo-list-items-div .list-item-card:hover {
-        background: #4d5059;
-        transition: background 0.1s ease-in-out;
-    }
+/* Dropdown status */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
-.list-controls-col .list-item-control:not(.disabled):active {
-    filter: brightness(70%);
+.dropbtn {
+    cursor: pointer;
+    user-select: none;
+}
+.dropbtn:hover {
+    background-color: #e9edf020;
+    transition: background-color 0.1s ease-in-out;
+}
+.dropbtn:focus {
+    background-color: #e9edf020;
+    transition: background-color 0.1s ease-in-out;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 98%;
+    overflow: overlay;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    outline: none;
+    user-select: none;
+}
+.dropdown-content div {
+    color: black;
+    display: block;
+    font-size: 12px;
+    line-height: 40px;
+}
+#myDropdown div:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+.showDropdown {
+    display: block;
+}
+.highlightStatus {
+    background-color: #e9edf020;
+}
+@media (min-width: 1000px) {
+    .dropdown-content div {
+        font-size: 16px;
+        height: fit-content;
+        line-height: 65px;
+    }
 }
