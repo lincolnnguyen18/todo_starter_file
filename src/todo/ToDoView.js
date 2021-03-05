@@ -136,7 +136,8 @@ export default class ToDoView {
                 textField.onblur = function() {
                     itemName.innerHTML = textField.value;
                     let itemInListToRename = model.getItemInCurrentListById(itemName.closest('.list-item-card').id.split('-')[3]);
-                    // itemInListToRename.description = textField.value;
+                    if (textField.value == itemInListToRename.description)
+                        return;
                     model.renameItemTransaction(itemInListToRename, textField.value);
                     model.setUndoRedoButtonStates();
                 }
