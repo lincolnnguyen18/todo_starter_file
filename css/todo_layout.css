@@ -161,6 +161,9 @@ div#todo-list-header-card div:empty {
     text-align: center;
 }
 @media (min-width: 1000px) {
+    #todo-list-header-card {
+        padding-right: 30px;
+    }
     div#todo-list-header-card div:empty {
         display: grid;
     }
@@ -206,6 +209,9 @@ div#todo-list-items-div .list-item-card .list-controls-col {
     padding-right: 0;
 }
 @media (min-width: 1000px) {
+    div#todo-list-items-div {
+        padding-right: 30px;
+    }
     div#todo-list-items-div .list-item-card {
         height: 65px;
         line-height: 65px;
