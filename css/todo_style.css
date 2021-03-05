@@ -43,7 +43,7 @@ span.left-sidebar-header-text {
 div#workspace {
     background: #40454e;
 }
-/* LIST VIEW HEADER */
+/* LIST VIEW */
 /* ************************************************************** */
 #todo-list-header-card::after {
     content: "";
@@ -56,16 +56,24 @@ div#workspace {
     bottom: 0;
     border-bottom: 2px dotted white;
 }
-/* LIST VIEW ITEMS */
-/* ************************************************************** */
 div#todo-list-items-div .list-item-card::after {
     content: "";
-    width: 97%;
+    width: 98.55%;
     position: absolute;
-    margin-left: auto;
+    margin-left: 1.44%;
     margin-right: auto;
     left: 0;
     right: 0;
     bottom: 0;
     border-bottom: 1px solid #e9edf0;
+}
+@media (min-width: 1000px) {
+    #todo-list-header-card::after {
+        width: 97%;
+        border-width: 2px;
+    }
+    div#todo-list-items-div .list-item-card::after {
+        width: 98.55%;
+        border-width: 2px;
+    }
 }
