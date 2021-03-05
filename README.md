@@ -4,7 +4,7 @@ A todo list web app.
 
 Time spent: **TBA** hours spent in total
 
-## User Stories
+## Features
 
 The following **required** functionality is completed:
 
