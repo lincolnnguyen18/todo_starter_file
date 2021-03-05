@@ -10,6 +10,7 @@ The following **required** functionality is completed:
 
 - [X] Selected list on top
 - [ ] Delete list confirmation
+List Editing
 - [X] Task renaming
 - [ ] Due date picker
 - [ ] Status dropdown menu
@@ -20,10 +21,12 @@ The following **required** functionality is completed:
 - [X] Undo/redo for moving item up
 - [X] Undo/redo for moving item down
 - [X] Undo/redo for deleting an item
+Foolproof Design
 - [ ] Add list button grayed out when not usable
 - [ ] Undo/redo buttons grayed out when not usable
 - [ ] List controls grayed out when not usable
 - [ ] Move item up/down grayed out when not usable
+Layout and Style 
 - [X] Current list highlighted
 - [X] Font, layout, and dimensions match given example (separation of navbar, margins and borders for items in list, proper heights for items in list)
 - [ ] Complete/incomplete status highlighting
