@@ -18,7 +18,6 @@ div#navbar {
     background: #40454e;
     font-weight: bold;
     color: #ffc800;
-    padding: 10px;
 }
 /* SIDEBAR */
 /* ************************************************************** */
@@ -42,12 +41,6 @@ span.left-sidebar-header-text {
 #add-list-button {
     color: #ffc800;
 }
-div#todo-lists-list div {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 0 5px 0;
-}
 /* WORKSPACE */
 /* ************************************************************** */
 div#workspace {
@@ -68,11 +61,14 @@ div#workspace {
 }
 /* LIST VIEW ITEMS */
 /* ************************************************************** */
-div#todo-list-items-div .task-col {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-div#todo-list-items-div .list-item-card {
+div#todo-list-items-div .list-item-card::after {
+    content: "";
+    width: 97%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-bottom: 1px solid #e9edf0;
 }
