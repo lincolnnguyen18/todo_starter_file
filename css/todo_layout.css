@@ -194,8 +194,12 @@ div#todo-list-items-div .list-item-card div {
     overflow: hidden;
     padding-right: 5px;
 }
+div#todo-list-items-div .list-item-card .list-controls-col {
+    padding-right: 0;
+}
 #todo-list-items-div .list-item-control.material-icons {
     line-height: 40px;
+    padding-right: 0;
 }
 @media (min-width: 1000px) {
     div#todo-list-items-div .list-item-card {
@@ -208,6 +212,10 @@ div#todo-list-items-div .list-item-card div {
 }
 /* DYNAMIC STATES */
 /* ************************************************************** */
+.disabled {
+    pointer-events: none;
+    opacity: 0.1; 
+}
 .task-col input {
     height: auto;
     width: 90%;
