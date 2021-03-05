@@ -34,7 +34,7 @@ Layout and Style
 - [X] Current list highlighted
 - [X] Font, layout, and dimensions match given example (separation of navbar, margins and borders for items in list, proper heights for items in list)
 - [ ] Complete/incomplete status highlighting <- 2
-- [ ] Mouse over highlighting for buttons and items in list <- 1
+- [X] Mouse over highlighting for buttons and items in list <- 1
 
 The following **bonus** features are implemented:
 

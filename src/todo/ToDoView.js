@@ -72,6 +72,7 @@ export default class ToDoView {
                 listItemElement.querySelector('.task-col').innerHTML = listItem.description;
                 listItemElement.querySelector('.due-date-col').innerHTML = listItem.dueDate;
                 listItemElement.querySelector('.status-col').querySelector('.dropbtn').innerHTML = listItem.status;
+                listItemElement.querySelector('.status-col').classList.add(listItem.status);
                 // open dropdown list
                 listItemElement.querySelector('.dropbtn').addEventListener('click', function(){
                     event.stopPropagation();

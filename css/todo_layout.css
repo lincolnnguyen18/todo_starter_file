@@ -346,6 +346,12 @@ div#todo-list-items-div .task-col:hover {
 .highlightStatus {
     background-color: #e9edf020;
 }
+.complete {
+    color: #8ed4f8;
+}
+.incomplete {
+    color: #f5bc75;
+}
 @media (min-width: 1000px) {
     .dropdown-content div {
         font-size: 16px;
