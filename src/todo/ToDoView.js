@@ -2,6 +2,10 @@ export default class ToDoView {
     constructor() {}
     // SIDEBAR LISTS FUNCTIONS
     // **************************************************************
+    clearCurrentListHighlight() {
+        let todoListsList = document.getElementById("todo-lists-list");
+        todoListsList.querySelectorAll(".todo_button")[0].removeAttribute("style");
+    }
     appendNewListToView(newList) {
         let listsElement = document.getElementById("todo-lists-list");
         let newListId = "todo-list-" + newList.id;
@@ -18,7 +22,7 @@ export default class ToDoView {
         // if currentListId == id of currentList then style it
         let listElementId = newList.id;
         if (currentListId == listElementId) {
-            listElement.setAttribute("style", "background-color: red;");
+            listElement.setAttribute("style", "background-color: #40454e;");
         }
         listsElement.appendChild(listElement);
         // load list when clicked

@@ -25,6 +25,7 @@ export default class ToDoController {
         document.getElementById("close-list-button").onmouseup = function() {
             appModel.currentList = null;
             appModel.view.clearItemsList();
+            appModel.view.clearCurrentListHighlight();
             appModel.setUndoRedoButtonStates();
             appModel.setAddItemDeleteListCloseListButtonState();
         }
