@@ -131,8 +131,10 @@ export default class ToDoModel {
         }
     }
     removeCurrentList() {
+        if (this.currentList == null)
+            return;
         let indexOfList = -1;
-        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0) && this.currentList != null; i++) {
+        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0); i++) {
             if (this.toDoLists[i].id === this.currentList.id) {
                 indexOfList = i;
             }

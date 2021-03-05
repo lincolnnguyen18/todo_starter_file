@@ -224,11 +224,17 @@ div#todo-list-items-div .list-item-card .list-controls-col {
 /* DYNAMIC STATES */
 /* ************************************************************** */
 .disabled {
-    pointer-events: none;
+    /*pointer-events: none;*/
     opacity: 0.1; 
 }
 /* Sidebar */
 @media (hover: hover) and (pointer: fine) {
+    div#left-sidebar-header .todo_button.disabled:hover {
+        cursor: default;
+    }
+    div#todo-lists-list .todo_button.disabled:hover {
+        cursor: default;
+    }
     div#left-sidebar-header .todo_button:hover {
         cursor: pointer;
         filter: brightness(150%);
@@ -237,6 +243,14 @@ div#todo-list-items-div .list-item-card .list-controls-col {
         cursor: pointer;
         background: #c3c4c7;
     }
+}
+div#left-sidebar-header .todo_button.disabled:active {
+    cursor: default;
+    filter: brightness(100%);
+}
+div#todo-lists-list .todo_button.disabled:active {
+    cursor: default;
+    background: rgb(195, 196, 199, 1.0);
 }
 div#left-sidebar-header .todo_button:active {
     cursor: pointer;
