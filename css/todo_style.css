@@ -7,10 +7,7 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 div#grid-container {
-    background-color: #d9d6cc;
-}
-div {
-    user-select: none;
+    background: #d9d6cc;
 }
 /* NAVBAR */
 /* ************************************************************** */

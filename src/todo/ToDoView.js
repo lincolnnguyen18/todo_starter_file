@@ -10,8 +10,8 @@ export default class ToDoView {
         let listsElement = document.getElementById("todo-lists-list");
         let newListId = "todo-list-" + newList.id;
         let listElement = document.createElement("div");
-        listElement.setAttribute("id", newListId);
-        listElement.setAttribute("class", "todo_button");
+        listElement.id = newListId;
+        listElement.classList.add("todo_button");
         listElement.appendChild(document.createTextNode(newList.name));
         // if currentList != null, get currentListId
         let currentList = this.controller.model.currentList;
@@ -22,7 +22,8 @@ export default class ToDoView {
         // if currentListId == id of currentList then style it
         let listElementId = newList.id;
         if (currentListId == listElementId) {
-            listElement.setAttribute("style", "background-color: #40454e;");
+            listElement.style.background = "#40454e";
+            listElement.classList.remove("todo_button");
         }
         listsElement.appendChild(listElement);
         // load list when clicked
