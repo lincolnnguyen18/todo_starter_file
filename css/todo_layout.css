@@ -12,6 +12,7 @@ body {
 }
 div {
     user-select: none;
+    touch-action: manipulation;
     -webkit-user-select: none;
 }
 .material-icons {
@@ -227,14 +228,6 @@ div#todo-list-items-div .list-item-card .list-controls-col {
     opacity: 0.1; 
 }
 /* Sidebar */
-div#left-sidebar-header .todo_button:active {
-    cursor: pointer;
-    filter: brightness(70%);
-}
-div#todo-lists-list .todo_button:active {
-    cursor: pointer;
-    background: rgb(195, 196, 199, 0.5);
-}
 @media (hover: hover) and (pointer: fine) {
     div#left-sidebar-header .todo_button:hover {
         cursor: pointer;
@@ -244,6 +237,14 @@ div#todo-lists-list .todo_button:active {
         cursor: pointer;
         background: #c3c4c7;
     }
+}
+div#left-sidebar-header .todo_button:active {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+div#todo-lists-list .todo_button:active {
+    cursor: pointer;
+    background: rgb(195, 196, 199, 0.5);
 }
 /* List view */
 .task-col input {
