@@ -30,13 +30,18 @@ div#left-sidebar-header::after {
     left: 0;
     right: 0;
     bottom: 0;
-    border-bottom: 2px dotted white;
+    border-bottom: 1px dotted white;
 }
 span.left-sidebar-header-text {
     font-weight: bold;
 }
 #add-list-button {
     color: #ffc800;
+}
+@media (min-width: 1000px) {
+    div#left-sidebar-header::after {
+        border-width: 2px;
+    }
 }
 /* WORKSPACE */
 /* ************************************************************** */
@@ -47,21 +52,17 @@ div#workspace {
 /* ************************************************************** */
 #todo-list-header-card::after {
     content: "";
-    width: 97%;
+    width: 100%%;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
     bottom: 0;
-    border-bottom: 2px dotted white;
+    border-bottom: 1px dotted white;
 }
 div#todo-list-items-div .list-item-card::after {
     content: "";
-    width: 98.55%;
     position: absolute;
-    margin-left: 1.44%;
-    margin-right: auto;
+    margin-right: 0.35%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -69,11 +70,9 @@ div#todo-list-items-div .list-item-card::after {
 }
 @media (min-width: 1000px) {
     #todo-list-header-card::after {
-        width: 97%;
+        width: 97;
         border-width: 2px;
     }
     div#todo-list-items-div .list-item-card::after {
-        width: 98.55%;
-        border-width: 2px;
     }
 }

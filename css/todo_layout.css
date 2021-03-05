@@ -124,7 +124,7 @@ div#todo-lists-list div {
 /* WORKSPACE */
 /* ************************************************************** */
 div#workspace {
-    margin: 0;
+    padding-left: 1.5%;
     overflow: hidden;
     display: grid;
     grid-template-rows: 40px 1fr;
@@ -142,8 +142,9 @@ div#modal_container {
 /* ************************************************************** */
 #todo-list-header-card {
     position: relative;
-    padding: 0 0 12px 1.5%;
     font-weight: bold;
+    padding-bottom: 12px;
+    margin-right: 1.5%;
 }
 #todo-list-header-card .list-controls-col {
     height: 16px;
@@ -163,7 +164,7 @@ div#todo-list-header-card div:empty {
 }
 @media (min-width: 1000px) {
     #todo-list-header-card {
-        padding-right: 30px;
+    margin-right: 1.5%;
     }
     div#todo-list-header-card div:empty {
         display: grid;
@@ -184,6 +185,7 @@ div#todo-list-header-card div:empty {
 /* ************************************************************** */
 div#todo-list-items-div {
     overflow: overlay;
+    padding-right: 1.5%;
 }
 .list-item-card {
     display: grid;
@@ -192,7 +194,6 @@ div#todo-list-items-div {
 div#todo-list-items-div .list-item-card {
     height: 40px;
     line-height: 40px;
-    padding: 0 0 0 1.5%;
     position: relative;
 }
 div#todo-list-items-div .list-item-card div {
@@ -200,7 +201,7 @@ div#todo-list-items-div .list-item-card div {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding-right: 5px;
+    padding-right: 1%;
 }
 div#todo-list-items-div .list-item-card .list-controls-col {
     padding-right: 0;
@@ -211,7 +212,7 @@ div#todo-list-items-div .list-item-card .list-controls-col {
 }
 @media (min-width: 1000px) {
     div#todo-list-items-div {
-        padding-right: 30px;
+        padding-right: 1.5%;
     }
     div#todo-list-items-div .list-item-card {
         height: 65px;
@@ -229,41 +230,46 @@ div#todo-list-items-div .list-item-card .list-controls-col {
 }
 /* Sidebar */
 @media (hover: hover) and (pointer: fine) {
-    div#left-sidebar-header .todo_button.disabled:hover {
-        cursor: default;
+    div#left-sidebar-header #add-list-button:hover {
+        text-shadow: 2px 2px 30px rgba(238, 238, 238, 0.2);
     }
-    div#todo-lists-list .todo_button.disabled:hover {
-        cursor: default;
-    }
-    div#left-sidebar-header .todo_button:hover {
+    div#left-sidebar-header .todo_button:not(.disabled):hover {
         cursor: pointer;
+        text-shadow: 2px 2px 30px rgba(238, 238, 238, 0.7);
         filter: brightness(150%);
+        transition: filter 0.05s ease-in-out;
     }
-    div#todo-lists-list .todo_button:hover {
+    div#todo-lists-list .todo_button:not(.disabled):hover {
         cursor: pointer;
         background: #c3c4c7;
+        transition: background 0.1s ease-in-out;
     }
 }
-div#left-sidebar-header .todo_button.disabled:active {
-    cursor: default;
-    filter: brightness(100%);
-}
-div#todo-lists-list .todo_button.disabled:active {
-    cursor: default;
-    background: rgb(195, 196, 199, 1.0);
-}
-div#left-sidebar-header .todo_button:active {
-    cursor: pointer;
+div#left-sidebar-header .todo_button:not(.disabled):active {
     filter: brightness(70%);
 }
-div#todo-lists-list .todo_button:active {
-    cursor: pointer;
-    background: rgb(195, 196, 199, 0.5);
+div#todo-lists-list .todo_button:not(.disabled):active {
+    background: rgb(195, 196, 199, 0.7);
 }
-/* List view */
+/* List view header */
+@media (hover: hover) and (pointer: fine) {
+    div#todo-list-header-card #close-list-button:hover {
+        text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
+    }
+    .list-controls-col .todo_button:not(.disabled):hover {
+        cursor: pointer;
+        text-shadow: 2px 2px 30px rgba(238, 238, 238, 0.7);
+        filter: brightness(150%);
+        transition: filter 0.05s ease-in-out;
+    }
+}
+.list-controls-col .todo_button:not(.disabled):active {
+    filter: brightness(70%);
+}
+/* List view items */
 .task-col input {
     height: auto;
-    width: 90%;
+    width: 85%;
     padding: 1px;
     font-family: Consolas, Inconsolata, monospace;
 }
@@ -275,4 +281,19 @@ div#todo-list-items-div .task-col:hover {
         height: 50%;
         font-size: 16px;
     }
+}
+@media (hover: hover) and (pointer: fine) {
+    .list-controls-col .list-item-control:not(.disabled):hover {
+        cursor: pointer;
+        text-shadow: 2px 2px 20px rgba(238, 238, 238, 1);
+        filter: brightness(150%);
+        transition: filter 0.05s ease-in-out;
+    }
+    #todo-list-items-div .list-item-card:hover {
+        background: #4d5059;
+        transition: background 0.1s ease-in-out;
+    }
+}
+.list-controls-col .list-item-control:not(.disabled):active {
+    filter: brightness(70%);
 }
