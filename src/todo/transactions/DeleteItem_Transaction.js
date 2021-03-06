@@ -22,5 +22,6 @@ export default class DeleteItem_Transaction extends jsTPS_Transaction {
         currentList[itemDeletedIndex].visible = true;
         model.view.viewCurrentList();
         model.view.scrollItemIntoView(this.itemDeleted);
+        model.view.highlightItemTemporarily(this.itemDeleted);
     }
 }

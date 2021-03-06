@@ -45,7 +45,16 @@ export default class ToDoView {
     // LIST ITEM FUNCTIONS
     // **************************************************************
     scrollItemIntoView(item) {
-        document.getElementById(`todo-list-item-${item.id}`).scrollIntoViewIfNeeded();
+        let theItem = document.getElementById(`todo-list-item-${item.id}`);
+        theItem.scrollIntoViewIfNeeded(true);
+        // this.highlightItemTemporarily(theItem);
+    }
+    highlightItemTemporarily(item) {
+        let itemInDocument = document.getElementById(`todo-list-item-${item.id}`);
+        itemInDocument.classList.add("undidOrRedidItem");
+        setTimeout(function(){
+            itemInDocument.classList.remove("undidOrRedidItem");
+        }, 3000);
     }
     clearItemsList() {
         let itemsListDiv = document.getElementById("todo-list-items-div");

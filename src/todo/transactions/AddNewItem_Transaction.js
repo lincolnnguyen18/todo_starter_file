@@ -15,6 +15,7 @@ export default class AddNewItem_Transaction extends jsTPS_Transaction {
         }
         model.view.viewCurrentList();
         model.view.scrollItemIntoView(this.itemAdded);
+        model.view.highlightItemTemporarily(this.itemAdded);
     }
     undoTransaction() {
         let model = this.model;

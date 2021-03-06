@@ -13,10 +13,12 @@ export default class RenameItem_Transaction extends jsTPS_Transaction {
         this.model.currentList.items[this.itemRenamed.index].description = this.newName;
         this.model.view.viewCurrentList();
         this.model.view.scrollItemIntoView(this.itemRenamed);
+        this.model.view.highlightItemTemporarily(this.itemRenamed);
     }
     undoTransaction() {
         this.model.currentList.items[this.itemRenamed.index].description = this.oldName;
         this.model.view.viewCurrentList();
         this.model.view.scrollItemIntoView(this.itemRenamed);
+        this.model.view.highlightItemTemporarily(this.itemRenamed);
     }
 }
