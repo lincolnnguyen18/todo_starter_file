@@ -15,7 +15,21 @@ export default class ToDoController {
             appModel.setUndoRedoButtonStates();
         }
         document.getElementById("delete-list-button").onmouseup = function() {
+            // appModel.removeCurrentList();
+            // appModel.setAddItemDeleteListCloseListButtonState();
+            document.getElementById("modal_container").classList.add('show');
+            console.log("open clicked!");
+        }
+        document.getElementById("modal-cancel1").onmouseup = function() {
+            modal_container.classList.remove('show');
+        }
+        document.getElementById("modal-cancel2").onmouseup = function() {
+            modal_container.classList.remove('show');
+        }
+        document.getElementById("modal-confirm").onmouseup  = function() {
             appModel.removeCurrentList();
+            modal_container.classList.remove('show');
+            console.log("list deleted!");
             appModel.setAddItemDeleteListCloseListButtonState();
         }
         document.getElementById("add-item-button").onmouseup = function() {

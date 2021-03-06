@@ -1,0 +1,1234 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"curso",
+				"cursor: default\t⌬ tabnine"
+			],
+			[
+				"interaction",
+				"interactions\t⌬ tabnine"
+			],
+			[
+				"text",
+				"textField.value\t⌬ tabnine"
+			],
+			[
+				"backgrou",
+				"backgroundColor =\t⌬ tabnine"
+			],
+			[
+				"quer",
+				"querySelectorAll(\"\t⌬ tabnine"
+			],
+			[
+				"que",
+				"querySelector('\t⌬ tabnine"
+			],
+			[
+				"Function",
+				"Functionality\t⌬ tabnine"
+			],
+			[
+				"bord",
+				"border-box\tbox-sizing"
+			],
+			[
+				"backg",
+				"background\tproperty"
+			],
+			[
+				"wid",
+				"width: 100%;\t⌬ tabnine"
+			],
+			[
+				"width",
+				"width: 100\t⌬ tabnine"
+			],
+			[
+				"input",
+				"input\tTag"
+			],
+			[
+				"maxim",
+				"maximum-\t⌬ tabnine"
+			],
+			[
+				"clic",
+				"clickedItem.\t⌬ tabnine"
+			],
+			[
+				"show",
+				"showDropdown\t⌬ tabnine"
+			],
+			[
+				"clas",
+				"classList.toggle('\t⌬ tabnine"
+			],
+			[
+				"backgr",
+				"background-color\tproperty"
+			],
+			[
+				"bac",
+				"backgroundColor\t⌬ tabnine"
+			],
+			[
+				"pare",
+				"parentElement.id\t⌬ tabnine"
+			],
+			[
+				"onmou",
+				"onmouseup\t⌬ tabnine"
+			],
+			[
+				"click",
+				"clickedItem\t⌬ tabnine"
+			],
+			[
+				"parent",
+				"parentElement.\t⌬ tabnine"
+			],
+			[
+				"paren",
+				"parentElement.\t⌬ tabnine"
+			],
+			[
+				"add",
+				"addEventListener\t⌬ tabnine"
+			],
+			[
+				"bco",
+				"block\tdisplay"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"inline-",
+				"inline-flex\tdisplay"
+			],
+			[
+				"ali",
+				"align-items\tproperty"
+			],
+			[
+				"blo",
+				"block;\t⌬ tabnine"
+			],
+			[
+				"vi",
+				"view.viewCurrentList();\t⌬ tabnine"
+			],
+			[
+				"on",
+				"onmouseup = function() {\t⌬ tabnine"
+			],
+			[
+				"inn",
+				"innerHTML = \"\t⌬ tabnine"
+			],
+			[
+				"margi",
+				"margin-left\tproperty"
+			],
+			[
+				"paddi",
+				"padding-left\tproperty"
+			],
+			[
+				"back",
+				"backgroundColor =\t⌬ tabnine"
+			],
+			[
+				"item",
+				"itemStatus.\t⌬ tabnine"
+			],
+			[
+				"onmouse",
+				"onmouseup = function() {\t⌬ tabnine"
+			],
+			[
+				"itemStau",
+				"itemStatus\t⌬ tabnine"
+			],
+			[
+				"fo",
+				"forEach\t⌬ tabnine"
+			],
+			[
+				"href",
+				"href=\"#\" class=\"\t⌬ tabnine"
+			],
+			[
+				"butt",
+				"button type=\"button\" class=\"\t⌬ tabnine"
+			],
+			[
+				"renam",
+				"renameItemTransaction\t⌬ tabnine"
+			],
+			[
+				"Rena",
+				"RenameItem_Transaction\t⌬ tabnine"
+			],
+			[
+				"to",
+				"toDoLists\t⌬ tabnine"
+			],
+			[
+				"tex",
+				"textField\t⌬ tabnine"
+			],
+			[
+				"func",
+				"function() {\t⌬ tabnine"
+			],
+			[
+				"qu",
+				"querySelector('.list-item\t⌬ tabnine"
+			],
+			[
+				"getElm",
+				"getElementsByClassName\t⌬ tabnine"
+			],
+			[
+				"list",
+				"listItem.\t⌬ tabnine"
+			],
+			[
+				"getElementByid",
+				"getElementByid(\"list\t⌬ tabnine"
+			],
+			[
+				"get",
+				"getElementById\t⌬ tabnine"
+			],
+			[
+				"cl",
+				"classList\t⌬ tabnine"
+			],
+			[
+				"templ",
+				"template')[0];\t⌬ tabnine"
+			],
+			[
+				"getelebytag",
+				"getelebytagName\t⌬ tabnine"
+			],
+			[
+				"addEventL",
+				"addEventListener('\t⌬ tabnine"
+			],
+			[
+				"le",
+				"length\t⌬ tabnine"
+			],
+			[
+				"classLi",
+				"classList.add('disabled');\t⌬ tabnine"
+			],
+			[
+				"nthchil",
+				"nthchild(2)');\t⌬ tabnine"
+			],
+			[
+				"getVis",
+				"getVisibleItems\t⌬ tabnine"
+			],
+			[
+				"controler",
+				"controller\t⌬ tabnine"
+			],
+			[
+				"fun",
+				"function(\t⌬ tabnine"
+			],
+			[
+				"filter",
+				"filter(item =>\t⌬ tabnine"
+			],
+			[
+				"class",
+				"classList\t: DOMTokenList Element"
+			],
+			[
+				"listItemMove",
+				"listItemMoveUp"
+			],
+			[
+				"curren",
+				"currentList"
+			],
+			[
+				"currn",
+				"currentList"
+			],
+			[
+				"itemDe",
+				"itemDeletedIndex"
+			],
+			[
+				"lis",
+				"listStyle\t = 'initial' Style CSS"
+			],
+			[
+				"mo",
+				"setMonth\t( month: int, date?: int ): number Date"
+			],
+			[
+				"jo",
+				"justifyContent\t = 'space-between' Style CSS"
+			],
+			[
+				"in",
+				"insertBefore\t( node: Node, child: Node ): Node Node"
+			],
+			[
+				"getelem",
+				"getElementById\t( elementId: DOMString ): Element Document"
+			],
+			[
+				"b",
+				"blur\t(): void Window"
+			],
+			[
+				"remove",
+				"removeItem\t( key: DOMString ): void Storage"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1477,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEECAAAAAAAAQgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAPgBAAAAAAAA+QEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+AEAAAAAAAD4AQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					11,
+					1,
+					"revert_modification",
+					null,
+					"AQAAAPgBAAAAAAAA+AEAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAA+AEAAAAAAAD4AQAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					13,
+					1,
+					"revert_modification",
+					null,
+					"AQAAAEECAAAAAAAAQQIAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAQgIAAAAAAABCAgAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEECAAAAAAAAQgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAQQIAAAAAAABBAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAABwCAAAAAAAAHQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAHAIAAAAAAAAcAgAAAAAAAP///////+9/"
+				],
+				[
+					18,
+					1,
+					"revert_hunk",
+					null,
+					"AQAAABwCAAAAAAAAHAIAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAHQIAAAAAAAAdAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					31,
+					1,
+					"revert_modification",
+					null,
+					"AQAAAEECAAAAAAAAQQIAAAAAAAABAAAACg",
+					"AQAAAAAAAAABAAAAQgIAAAAAAABCAgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "index.html",
+			"redo_stack":
+			[
+				[
+					17,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Line.sublime-macro"
+					},
+					"AQAAADYCAAAAAAAAhwIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANgIAAAAAAAA2AgAAAAAAAAAAAAAAAPC/"
+				]
+			],
+			"settings":
+			{
+				"buffer_size": 4491,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "src/todo/ToDoView.js",
+			"settings":
+			{
+				"buffer_size": 9567,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		},
+		{
+			"file": "src/todo/ToDoController.js",
+			"settings":
+			{
+				"buffer_size": 2090,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\napp"
+					},
+					"BQAAAMADAAAAAAAAwQMAAAAAAAAAAAAAwQMAAAAAAADNAwAAAAAAAAAAAADNAwAAAAAAAM4DAAAAAAAAAAAAAM4DAAAAAAAAzwMAAAAAAAAAAAAAzwMAAAAAAADQAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAwAMAAAAAAADAAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					8,
+					1,
+					"insert_completion",
+					{
+						"completion": "appModel$0",
+						"format": "snippet",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "appModel"
+					},
+					"AgAAAM0DAAAAAAAAzQMAAAAAAAADAAAAYXBwzQMAAAAAAADVAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA0AMAAAAAAADQAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"insert",
+					{
+						"characters": ".se"
+					},
+					"AwAAANUDAAAAAAAA1gMAAAAAAAAAAAAA1gMAAAAAAADXAwAAAAAAAAAAAADXAwAAAAAAANgDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA1QMAAAAAAADVAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "tun"
+					},
+					"AwAAANgDAAAAAAAA2QMAAAAAAAAAAAAA2QMAAAAAAADaAwAAAAAAAAAAAADaAwAAAAAAANsDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AMAAAAAAADYAwAAAAAAAP///////+9/"
+				],
+				[
+					13,
+					1,
+					"run_macro_file",
+					{
+						"file": "res://Packages/Default/Delete Line.sublime-macro"
+					},
+					"AQAAAMEDAAAAAAAAwQMAAAAAAAAbAAAAICAgICAgICAgICAgYXBwTW9kZWwuc2V0dW4K",
+					"AQAAAAAAAAABAAAA2wMAAAAAAADbAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					86,
+					1,
+					"insert",
+					{
+						"characters": "fa"
+					},
+					"AgAAAPsFAAAAAAAA/AUAAAAAAAAAAAAA/AUAAAAAAAD9BQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA+wUAAAAAAAD7BQAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					89,
+					1,
+					"insert",
+					{
+						"characters": "a"
+					},
+					"AQAAABgCAAAAAAAAGQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAGAIAAAAAAAAYAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					100,
+					1,
+					"revert_modification",
+					null,
+					"AQAAABgCAAAAAAAAGAIAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAAGQIAAAAAAAAZAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					108,
+					1,
+					"revert_modification",
+					null,
+					"AQAAAPsFAAAAAAAA+wUAAAAAAAACAAAAZmE",
+					"AQAAAAAAAAABAAAA/QUAAAAAAAD9BQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "src/todo/ToDoTrackerApp.js",
+			"settings":
+			{
+				"buffer_size": 1489,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/todo_layout.css",
+			"settings":
+			{
+				"buffer_size": 6196,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"bind",
+				"Preferences: Key Bindings"
+			],
+			[
+				"tabnine",
+				"⌬ tabnine: Open Configuration"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"kite",
+				"Kite: Go Tutorial"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"snippe",
+				"Snippet: function"
+			],
+			[
+				"packint",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"packkage ",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"list pack",
+				"Package Control: List Packages"
+			],
+			[
+				"pakcac",
+				"Package Control: Remove Package"
+			],
+			[
+				"format",
+				"Formatter: Beautify With Prettier"
+			],
+			[
+				"foramtter: ",
+				"Formatter: Beautify With JS Beautifier"
+			],
+			[
+				"format js",
+				"Formatter: Beautify With JS Beautifier"
+			],
+			[
+				"sttings",
+				"Preferences: Settings"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"",
+				"Code Folding: Unfold All"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 449.0,
+		"history":
+		[
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
+			"TabNine",
+			"ls",
+			"TabNine::version"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/linco/Desktop/github projects/todo_starter_file",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/common",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/test",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions"
+	],
+	"file_history":
+	[
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoTrackerApp.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoView.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions/AddNewItem_Transaction.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css/todo_style.css",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css/todo_layout.css",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/index.html",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoModel.js",
+		"/C/Users/linco/AppData/Roaming/Sublime Merge/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoController.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css/todo_layout_old2.css",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/project.sublime-project",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/README.md",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions/RenameItem_Transaction.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions/MoveItemUp_Transaction.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions/MoveItemDown_Transaction.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/transactions/DeleteItem_Transaction.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css/todo_layout_old.css",
+		"/C/Users/linco/Desktop/github projects/styleTodoApp/index.html",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/css/indexOld.html",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoList.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/todo/ToDoListItem.js",
+		"/D/Cool things to make/Decaminute/Kaomoji.txt",
+		"/D/Cool things to make/Decaminute/To Do.txt",
+		"/C/Users/linco/AppData/Local/Temp/kite_tutorial.py",
+		"/C/Users/linco/AppData/Local/Temp/kite_tutorial.go",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/common/jsTPS.js",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/src/test/TestTodoLists.json",
+		"/D/Cool things to make/Decaminute/Components.txt",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/project.sublime-workspace",
+		"/C/Users/linco/Desktop/github projects/todo_starter_file/.gitattributes",
+		"/C/Users/linco/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/linco/Desktop/github projects/todoTrackerHW1/css/todo_layout.css",
+		"/C/Users/linco/Desktop/github projects/todoTrackerHW1/index.html"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 146.0,
+		"where_history":
+		[
+			"<open folders>",
+			"<open files>",
+			"<current file>",
+			"<open files>",
+			"<current file>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"scroll",
+			"overflow",
+			"blur",
+			"overflow",
+			"scroll",
+			"scrollto",
+			"this.view.appendNewListToView(newList);",
+			" for (let i = 0; (i < this.toDoLists.length) && (list",
+			".disabled:active {\n    cursor: default;\n    opacity: 0.1; \n}",
+			"cursor",
+			"user-select",
+			"e9edf0",
+			"setattribute",
+			"background-color",
+			"background-color: red",
+			"background-color",
+			"background-color: red",
+			"red",
+			"padding",
+			"min-width",
+			"height",
+			"text-overflow",
+			"div#todo-lists-list div {",
+			".task-col",
+			"overflow",
+			"padding",
+			"margin",
+			"padding",
+			"user-select",
+			"div#todo-list-items-div .task-col {\n    user-select: text;\n}",
+			"padding",
+			"user-select",
+			"<p",
+			",P",
+			"font-size",
+			"font",
+			"color",
+			"@media",
+			"px",
+			"padding",
+			"1300px",
+			"1200px",
+			"1100px",
+			"1050px",
+			"1000px",
+			"font-size",
+			"todo-list-header-card",
+			"border",
+			"resize",
+			"left-sidebar-header-text",
+			"left-sidebar",
+			"workspace",
+			"list-item-control",
+			"lectorAll('.list-item-control')[0].onmouseup",
+			".dropdown-content",
+			":hover",
+			"getItemById",
+			"textfield",
+			"listItemElement.querySelector('.task-col')",
+			"disabled",
+			"getElementById",
+			"split",
+			"itemName",
+			"createEle",
+			"createlement",
+			"forEach",
+			"foreach",
+			"filter",
+			"setUndoRedoButtonStates",
+			"state",
+			"add('disable",
+			"deleteItemTransction",
+			"for (",
+			"use strict",
+			"strict mode",
+			"use strict",
+			"debug",
+			"DeleteItem_Transaction",
+			"AddNewItem_Transaction",
+			"refreshListsDefault",
+			"unknown",
+			"debug",
+			"ignore",
+			"debug",
+			"for debu",
+			"for debugging",
+			"this.model",
+			"moveCurrentListToIndexZeroOfToDoLists",
+			"newList.setNam",
+			"removeItem",
+			"newItem",
+			"setDescription",
+			"newItem",
+			"setName",
+			"{\n",
+			"addItemToCurrentList",
+			"addNewItem",
+			"removeItem",
+			"addItem",
+			"addItem(",
+			"addItem",
+			"addItemAtItsIndex",
+			"getItemAtIndex",
+			"getIndexOfItem",
+			"addItemAtItsIndex",
+			"        \n",
+			"addnewitem",
+			"            \n",
+			"addItemAtItsIndex"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"1400px",
+			"1300px",
+			"1200px",
+			"1100px",
+			"1050px",
+			"1005px",
+			"textField",
+			"taskCol",
+			"currentItemname",
+			"deleteItemTransaction",
+			"appModel"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								640,
+								640
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								270.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4491,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1258,
+								1258
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/todo/ToDoView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4879,
+								4879
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								1580.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1580.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "src/todo/ToDoController.js",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								938,
+								938
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/todo/ToDoTrackerApp.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/todo_layout.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6196,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3816,
+								3816
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								2984.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2984.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "add",
+		"selected_items":
+		[
+			[
+				"add",
+				"addItem"
+			]
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

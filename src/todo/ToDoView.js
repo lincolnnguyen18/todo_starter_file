@@ -4,7 +4,8 @@ export default class ToDoView {
     // **************************************************************
     clearCurrentListHighlight() {
         let todoListsList = document.getElementById("todo-lists-list");
-        todoListsList.querySelectorAll(".todo_button")[0].removeAttribute("style");
+        let firstList = todoListsList.querySelectorAll("div")[0];
+        firstList.removeAttribute("style");
     }
     appendNewListToView(newList) {
         let listsElement = document.getElementById("todo-lists-list");
