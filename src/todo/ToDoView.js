@@ -22,7 +22,9 @@ export default class ToDoView {
         // if currentListId == id of currentList then style it
         let listElementId = newList.id;
         if (currentListId == listElementId) {
-            listElement.style.background = "#40454e";
+            listElement.style.background = "#ffc800";
+            listElement.style.color = "#000";
+            listElement.style.fontWeight = "bold";
             listElement.classList.remove("todo_button");
         }
         listsElement.appendChild(listElement);
@@ -66,6 +68,17 @@ export default class ToDoView {
     viewCurrentList() {
         this.viewList(this.controller.model.currentList);
     }
+    formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+        return [year, month, day].join('-');
+    }
     viewList(list) {
         let itemsListDiv = document.getElementById("todo-list-items-div");
         let numberOfVisibleItems = this.controller.model.getVisibleItems().length;
@@ -79,7 +92,7 @@ export default class ToDoView {
                 let listItemElement = listItemTemplate.content.cloneNode(true);
                 listItemElement.querySelector('#todo-list-item-0').id = `todo-list-item-${listItem.id}`;
                 listItemElement.querySelector('.task-col').innerHTML = listItem.description;
-                listItemElement.querySelector('.due-date-col').innerHTML = listItem.dueDate;
+                listItemElement.querySelector('.due-date-col').innerHTML = this.formatDate(listItem.dueDate);
                 listItemElement.querySelector('.status-col').querySelector('.dropbtn').innerHTML = listItem.status;
                 listItemElement.querySelector('.status-col').classList.add(listItem.status);
                 // open dropdown list
@@ -178,6 +191,65 @@ export default class ToDoView {
                 itemName.getElementsByTagName('input')[0].select();
             }
         });
+        itemNames.forEach((itemName) => {
+            itemName.onmouseup = function() {
+                if (itemName.getElementsByTagName('input')[0] != null)
+                    return;
+                let textField = document.createElement('input');
+                textField.value = itemName.innerHTML;
+                textField.onblur = function() {
+                    itemName.innerHTML = textField.value;
+                    let itemInListToRename = model.getItemInCurrentListById(itemName.closest('.list-item-card').id.split('-')[3]);
+                    if (textField.value == itemInListToRename.description)
+                        return;
+                    model.renameItemTransaction(itemInListToRename, textField.value);
+                    model.setUndoRedoButtonStates();
+                }
+                textField.addEventListener('keyup', ({ key }) => {
+                    if (key === 'Enter') {
+                        let textField = itemName.getElementsByTagName('input')[0].blur();
+                    }
+                })
+                itemName.innerHTML = '';
+                itemName.appendChild(textField);
+                itemName.getElementsByTagName('input')[0].select();
+            }
+        });
+
+
+        // add change due date event for due dates
+        let dueDates = document.querySelectorAll('#todo-list-items-div .due-date-col');
+        let thisView = this;
+        dueDates.forEach((dueDate) => {
+            dueDate.onmouseup = function() {
+                if (dueDate.getElementsByTagName('input')[0] != null)
+                    return;
+                let textField = document.createElement('input');
+                textField.value = dueDate.innerHTML;
+                textField.onblur = function() {
+                    dueDate.innerHTML = textField.value;
+                    let itemInListToChangeDate = model.getItemInCurrentListById(dueDate.closest('.list-item-card').id.split('-')[3]);
+                    if (textField.value == thisView.formatDate(itemInListToChangeDate.dueDate))
+                        return;
+                    // model.renameItemTransaction(itemInListToRename, textField.value);
+                    // model.setUndoRedoButtonStates();
+                }
+                textField.addEventListener('keyup', ({ key }) => {
+                    if (key === 'Enter') {
+                        let textField = dueDate.getElementsByTagName('input')[0].blur();
+                    }
+                })
+                dueDate.innerHTML = '';
+                dueDate.appendChild(textField);
+                dueDate.getElementsByTagName('input')[0].select();
+            }
+        });
+
+
+
+
+
+
         let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
         let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
         let firstMoveItemUpButtons = moveItemUpButtons[0];
