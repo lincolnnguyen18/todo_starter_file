@@ -6,6 +6,7 @@ export default class ToDoView {
         let todoListsList = document.getElementById("todo-lists-list");
         let firstList = todoListsList.querySelectorAll("div")[0];
         firstList.removeAttribute("style");
+        firstList.classList.add('todo_button');
     }
     appendNewListToView(newList) {
         let listsElement = document.getElementById("todo-lists-list");

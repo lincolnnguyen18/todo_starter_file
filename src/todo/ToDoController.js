@@ -7,18 +7,24 @@ export default class ToDoController {
             appModel.addNewList();
         }
         document.getElementById("undo-button").onmouseup = function() {
-            appModel.undo();
-            appModel.setUndoRedoButtonStates();
+            if (!this.classList.contains('disabled')) {
+                appModel.undo();
+                appModel.setUndoRedoButtonStates();
+            }
         }
         document.getElementById("redo-button").onmouseup = function() {
-            appModel.redo();
-            appModel.setUndoRedoButtonStates();
+            if (!this.classList.contains('disabled')) {
+                appModel.redo();
+                appModel.setUndoRedoButtonStates();
+            }
         }
         document.getElementById("delete-list-button").onmouseup = function() {
             // appModel.removeCurrentList();
             // appModel.setAddItemDeleteListCloseListButtonState();
-            document.getElementById("modal_container").classList.add('show');
-            console.log("open clicked!");
+            if (!this.classList.contains('disabled')) {
+                document.getElementById("modal_container").classList.add('show');
+                console.log("open clicked!");
+            }
         }
         document.getElementById("modal-cancel1").onmouseup = function() {
             modal_container.classList.remove('show');
@@ -39,12 +45,14 @@ export default class ToDoController {
             appModel.setUndoRedoButtonStates();
         }
         document.getElementById("close-list-button").onmouseup = function() {
-            appModel.currentList = null;
-            appModel.view.clearItemsList();
-            appModel.view.clearCurrentListHighlight();
-            appModel.tps.clearAllTransactions();
-            appModel.setUndoRedoButtonStates();
-            appModel.setAddItemDeleteListCloseListButtonState();
+            if (!this.classList.contains('disabled')) {
+                appModel.currentList = null;
+                appModel.view.clearItemsList();
+                appModel.view.clearCurrentListHighlight();
+                appModel.tps.clearAllTransactions();
+                appModel.setUndoRedoButtonStates();
+                appModel.setAddItemDeleteListCloseListButtonState();
+            }
         }
     }
     handleLoadList(listId) {
@@ -52,9 +60,9 @@ export default class ToDoController {
         let clickedListId = listId;
         let currentListId;
         let appModel = this.model;
+        appModel.tps.clearAllTransactions();
         if (appModel.currentList != null && clickedListId != appModel.currentList.id) {
             currentListId = appModel.currentList.id;
-            appModel.tps.clearAllTransactions();
             appModel.removeDeletedItemsFromCurrentList();
             appModel.resetItemIndices();
         }
