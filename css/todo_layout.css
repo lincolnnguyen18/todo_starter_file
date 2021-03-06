@@ -284,7 +284,7 @@ div#todo-lists-list .todo_button:not(.disabled):active {
 .undidOrRedidItem {
     background: #4d5059;
     text-shadow: 2px 2px 20px rgba(238, 238, 238, 0.2);
-    filter: brightness(120%);
+    /*filter: brightness(120%);*/
 }
 .list-controls-col .list-item-control:not(.disabled):active {
     filter: brightness(70%);
