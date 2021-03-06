@@ -296,7 +296,7 @@ div#todo-lists-list .todo_button:not(.disabled):active {
     padding: 1px;
     font-family: Consolas, Inconsolata, monospace;
 }
-div#todo-list-items-div .task-col:hover {
+div#todo-list-items-div .task-col, .due-date-col:hover {
     cursor: text;
 }
 @media (min-width: 1000px) {
