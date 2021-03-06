@@ -89,14 +89,31 @@ export default class ToDoView {
                 listItemElement.querySelector('.dropbtn').addEventListener('focusout', function(event){
                     let dropdownContainer = this.parentElement;
                     let dropDownToShow = dropdownContainer.querySelector('#myDropdown');
+                    let relatedTarget = event.relatedTarget;
                     if (event.relatedTarget) {
                         let clickedItem = event.relatedTarget;
-                        // if new target is the dropdown menu then don't close the dropdown
-                        if (clickedItem.parentElement.id == 'myDropdown')
-                            return;
                         // if new target is another dropdown button then close the dropdown
                         if (clickedItem.classList.contains('dropbtn'))
                             dropDownToShow.classList.remove('showDropdown');
+                        let actualClickedItemId = clickedItem.closest('.list-item-card').id.split('-')[3];
+                        let actualClickedItem = model.getItemInCurrentListById(actualClickedItemId);
+                        if (clickedItem.innerHTML == actualClickedItem.status)
+                            return;
+                        if (clickedItem.innerHTML == 'complete') {
+                            model.setCompleteTransaction(actualClickedItem);
+                            model.setUndoRedoButtonStates();
+                        }
+                        if (clickedItem.innerHTML == 'incomplete') {
+                            model.setIncompleteTransaction(actualClickedItem);
+                            model.setUndoRedoButtonStates();
+                        }
+                        // if new target is the dropdown menu then don't close the dropdown
+                        if (clickedItem.parentElement.id == 'myDropdown') {
+                            let newStatus = clickedItem;
+                            newStatus = clickedItem.innerHTML;
+                            newStatus = clickedItem.innerHTML;
+                            return;
+                        }
                     // if new target is unrelated then close the dropdown
                     } else {
                         dropDownToShow.classList.remove('showDropdown');
