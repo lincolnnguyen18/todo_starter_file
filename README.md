@@ -2,8 +2,6 @@
 
 A todo list web app.
 
-Time spent: **TBA** hours spent in total
-
 ## Features
 
 The following **required** functionality is completed:
@@ -46,5 +44,8 @@ The following **bonus** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
+<img src='http://g.recordit.co/ECsUJmYkGO.gif' />
+<img src='http://g.recordit.co/Cvc54yzimC.gif' />
+<img src='http://g.recordit.co/Bo5Ok9LQ1n.gif' />
+<img src='http://g.recordit.co/vB3pmhkOzc.gif' />
 
-<img src='http://g.recordit.co/XMaI91cAIp.gif' />
