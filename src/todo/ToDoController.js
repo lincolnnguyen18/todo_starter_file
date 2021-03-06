@@ -30,6 +30,8 @@ export default class ToDoController {
             appModel.removeCurrentList();
             modal_container.classList.remove('show');
             console.log("list deleted!");
+            appModel.tps.clearAllTransactions();
+            appModel.setUndoRedoButtonStates();
             appModel.setAddItemDeleteListCloseListButtonState();
         }
         document.getElementById("add-item-button").onmouseup = function() {
@@ -40,6 +42,7 @@ export default class ToDoController {
             appModel.currentList = null;
             appModel.view.clearItemsList();
             appModel.view.clearCurrentListHighlight();
+            appModel.tps.clearAllTransactions();
             appModel.setUndoRedoButtonStates();
             appModel.setAddItemDeleteListCloseListButtonState();
         }
