@@ -191,32 +191,6 @@ export default class ToDoView {
                 itemName.getElementsByTagName('input')[0].select();
             }
         });
-        itemNames.forEach((itemName) => {
-            itemName.onmouseup = function() {
-                if (itemName.getElementsByTagName('input')[0] != null)
-                    return;
-                let textField = document.createElement('input');
-                textField.value = itemName.innerHTML;
-                textField.onblur = function() {
-                    itemName.innerHTML = textField.value;
-                    let itemInListToRename = model.getItemInCurrentListById(itemName.closest('.list-item-card').id.split('-')[3]);
-                    if (textField.value == itemInListToRename.description)
-                        return;
-                    model.renameItemTransaction(itemInListToRename, textField.value);
-                    model.setUndoRedoButtonStates();
-                }
-                textField.addEventListener('keyup', ({ key }) => {
-                    if (key === 'Enter') {
-                        let textField = itemName.getElementsByTagName('input')[0].blur();
-                    }
-                })
-                itemName.innerHTML = '';
-                itemName.appendChild(textField);
-                itemName.getElementsByTagName('input')[0].select();
-            }
-        });
-
-
         // add change due date event for due dates
         let dueDates = document.querySelectorAll('#todo-list-items-div .due-date-col');
         let thisView = this;
@@ -224,32 +198,30 @@ export default class ToDoView {
             dueDate.onmouseup = function() {
                 if (dueDate.getElementsByTagName('input')[0] != null)
                     return;
-                let textField = document.createElement('input');
-                textField.value = dueDate.innerHTML;
-                textField.onblur = function() {
+                let dateField = document.createElement('input');
+                dateField.type = "date";
+                dateField.value = dueDate.innerHTML;
+                dateField.onblur = function() {
+                    let textField = document.querySelector(".due-date-col input");
+                    let dateValues = textField.value.split('-');
+                    let dateObject = new Date(dateValues[0], dateValues[1] - 1, dateValues[2]);
                     dueDate.innerHTML = textField.value;
                     let itemInListToChangeDate = model.getItemInCurrentListById(dueDate.closest('.list-item-card').id.split('-')[3]);
                     if (textField.value == thisView.formatDate(itemInListToChangeDate.dueDate))
                         return;
-                    // model.renameItemTransaction(itemInListToRename, textField.value);
-                    // model.setUndoRedoButtonStates();
+                    model.changeDateTransaction(itemInListToChangeDate, dateObject);
+                    model.setUndoRedoButtonStates();
                 }
-                textField.addEventListener('keyup', ({ key }) => {
+                dateField.addEventListener('keyup', ({ key }) => {
                     if (key === 'Enter') {
-                        let textField = dueDate.getElementsByTagName('input')[0].blur();
+                        let dateField = dueDate.getElementsByTagName('input')[0].blur();
                     }
                 })
                 dueDate.innerHTML = '';
-                dueDate.appendChild(textField);
-                dueDate.getElementsByTagName('input')[0].select();
+                dueDate.appendChild(dateField);
+                dateField.focus();
             }
         });
-
-
-
-
-
-
         let moveItemUpButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(1)');
         let moveItemDownButtons = document.querySelectorAll('#todo-list-items-div .list-item-control:nth-child(2)');
         let firstMoveItemUpButtons = moveItemUpButtons[0];

@@ -305,6 +305,23 @@ div#todo-list-items-div .task-col:hover {
         font-size: 16px;
     }
 }
+/* Changing item due date */
+.due-date-col input {
+    height: auto;
+    /*margin-right: 0px;*/
+    width: 85%;
+    font-size: 1.5vw;
+    font-family: Consolas, Inconsolata, monospace;
+}
+div#todo-list-items-div .due-date-col :hover {
+    cursor: pointer;
+}
+@media (min-width: 1000px) {
+    .due-date-col input {
+        height: 50%;
+        font-size: 16px;
+    }
+}
 /* Dropdown status */
 .dropdown {
     position: relative;
