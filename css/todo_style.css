@@ -36,11 +36,13 @@ div#navbar {
     background: #40454e;
     font-weight: bold;
     color: #ffc800;
+    box-shadow: 2px 3px 2px #636363;
 }
 /* SIDEBAR */
 /* ************************************************************** */
 div#left-sidebar {
     background: #353a44;
+    box-shadow: 2px 3px 2px #636363;
 }
 div#left-sidebar-header::after {
     content: "";
@@ -68,6 +70,7 @@ span.left-sidebar-header-text {
 /* ************************************************************** */
 div#workspace {
     background: #40454e;
+    box-shadow: 2px 3px 2px #636363;
 }
 /* LIST VIEW */
 /* ************************************************************** */
